@@ -10,7 +10,7 @@ const Hero = () => {
   const images = [
     'https://images.unsplash.com/photo-1557672172-298e090bd0f1',
     'https://images.unsplash.com/photo-1558618666-fcd25c85cd64',
-    'https://images.unsplash.com/photo-1557672199-6ba8f650e143',
+    
     'https://images.unsplash.com/photo-1542744173-8e7e53415bb0',
     'https://images.unsplash.com/photo-1553877522-43269d4ea984',
     'https://images.unsplash.com/photo-1557804506-669a67965ba0'
@@ -23,7 +23,7 @@ const Hero = () => {
         {[0, 1, 2, 3,4,5].map((row) => (
           <div key={row} className="flex gap-4 mb-4" style={{ animation: `scroll${row % 2 === 0 ? 'Left' : 'Right'} 40s linear infinite` }}>
             {[...images, ...images].map((img, i) => (
-              <img key={i} src={`${img}?w=200&h=200&fit=crop`} alt="" className="w-44 h-44 object-cover rounded-lg flex-shrink-0" />
+              <img key={i} src={`${img}?w=200&h=200&fit=crop`} alt="hero images" className="w-44 h-44 object-cover rounded-lg flex-shrink-0" />
             ))}
           </div>
         ))}

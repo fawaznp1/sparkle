@@ -1,75 +1,60 @@
 import { useTheme } from './ThemeContext';
+import { useState } from 'react';
 
 const PromoGifts = () => {
   const { isDark } = useTheme();
+  const [expanded, setExpanded] = useState(false);
   
-  return (
-    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-      </div>
+  const gifts = [
+    { name: 'Promotional Merchandise', image: 'https://cdn11.bigcommerce.com/s-v6gbf2om44/product_images/uploaded_images/keepsake-creative-promo.jpg' },
+    { name: 'Corporate Gifts', image: 'https://5.imimg.com/data5/SELLER/Default/2025/9/543226873/RF/LT/CW/250219629/dairy-pen-flask-corporate-gift-set-1000x1000.jpeg' },
+    { name: 'Promotional Calendars', image: 'https://www.microprinting.ca/storage/2019/04/6-Expert-Tips-to-Design-an-Inspiring-Promotional-Calendar.jpg' },
+    { name: 'Corporate Diaries', image: 'https://m.media-amazon.com/images/I/61ajJgVBn6L._SX466_.jpg' }
+  ];
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+  const fullText = "SPARKLE Promotional Gifts you will find a vast range of quality promotional items, all are suitable to be branded with your own corporate logo, or, if you require just plain stock. We offer a fast and efficient service at very competitive prices. We specialise in promotional merchandise like promotional pens, keyrings, umbrellas, USBs paper products etc. so whether you are looking for personalised gifts for conferences, exhibitions, promotional giveaways or trade shows we have plenty of options to choose from.";
+  const shortText = fullText.slice(0, 200);
+
+  return (
+    <section className={`${isDark ? 'bg-slate-900' : 'bg-white'} py-16 px-4 transition-colors duration-300`}>
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
-            PROMO GIFTS
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            Promotional Gifts
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
         </div>
 
-        <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12`}>
-          <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg text-center mb-12 max-w-3xl mx-auto`}>
-            Memorable promotional gifts that leave a lasting impression.
-          </p>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="flex justify-center">
-              <div className="group relative w-64 h-64 backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-7xl">🎁</div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-4">
+            {gifts.map((gift, index) => (
+              <div key={index} className="relative group">
+                <div className={` p-6 flex items-center justify-center h-64 hover:scale-105 transition-transform duration-300`}>
+                  <img 
+                    src={gift.image} 
+                    alt={gift.name} 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="absolute top-3 left-3">
+                  <span className="bg-[#be185d] text-white text-xs px-3 py-1 rounded-full">
+                    {gift.name}
+                  </span>
                 </div>
               </div>
-            </div>
-
-            <div className="flex justify-center gap-6">
-              <div className="group relative w-56 h-56 backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-6xl">🎁</div>
-                </div>
-              </div>
-              <div className="group relative w-56 h-56 backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-6xl">🎁</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-center gap-4">
-              <div className="group relative w-48 h-48 backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-5xl">🎁</div>
-                </div>
-              </div>
-              <div className="group relative w-48 h-48 backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-5xl">🎁</div>
-                </div>
-              </div>
-              <div className="group relative w-48 h-48 backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-110 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-5xl">🎁</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="text-center mt-12">
-            <button className="group bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
-              Get Quote
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
+          <div>
+            <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'} text-lg leading-relaxed`}>
+              {expanded ? fullText : shortText + '...'}
+              <button 
+                onClick={() => setExpanded(!expanded)}
+                className="text-[#be185d] hover:text-[#9d1449] ml-2 font-medium"
+              >
+                {expanded ? 'Read less' : 'Read more'}
+              </button>
+            </p>
           </div>
         </div>
       </div>

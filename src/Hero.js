@@ -1,6 +1,45 @@
+import { useState, useEffect, useRef } from 'react';
 import { useTheme } from './ThemeContext';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
+
+const CountUp = ({ end, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    let start = 0;
+    const increment = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [isVisible, end, duration]);
+
+  return <span ref={ref}>{count}+</span>;
+};
 
 const Hero = () => {
   const { isDark } = useTheme();
@@ -8,12 +47,11 @@ const Hero = () => {
   const t = translations[language];
   
   const images = [
-    'https://images.unsplash.com/photo-1557672172-298e090bd0f1',
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64',
-    
-    'https://images.unsplash.com/photo-1542744173-8e7e53415bb0',
-    'https://images.unsplash.com/photo-1553877522-43269d4ea984',
-    'https://images.unsplash.com/photo-1557804506-669a67965ba0'
+    'https://images.unsplash.com/photo-1626785774573-4b799315345d',
+    'https://images.unsplash.com/photo-1611532736597-de2d4265fba3',
+    'https://images.unsplash.com/photo-1572044162444-ad60f128bdea',
+    'https://images.unsplash.com/photo-1557858310-9052820906f7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1614494731690-53925976ea29?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   ];
   
   return (
@@ -69,17 +107,23 @@ const Hero = () => {
             
             <div className="flex items-center gap-4 sm:gap-8">
               <div>
-                <div className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>500+</div>
+                <div className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  <CountUp end={500} />
+                </div>
                 <div className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t.projectsDone}</div>
               </div>
               <div className={`w-px h-12 ${isDark ? 'bg-white/20' : 'bg-gray-300'}`}></div>
               <div>
-                <div className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>50+</div>
+                <div className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  <CountUp end={50} />
+                </div>
                 <div className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t.happyClients}</div>
               </div>
               <div className={`w-px h-12 ${isDark ? 'bg-white/20' : 'bg-gray-300'}`}></div>
               <div>
-                <div className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>5+</div>
+                <div className={`text-2xl sm:text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  <CountUp end={5} />
+                </div>
                 <div className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t.yearsExp}</div>
               </div>
             </div>

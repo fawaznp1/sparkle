@@ -12,11 +12,11 @@ const Indoor = () => {
   const t = translations[language];
 
   const signTypes = [
-    { name: t.largeFormatSigns, images: ["https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"] },
+    { name: t.largeFormatSigns, images: ["https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800", "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800"] },
     { name: t.backlitSigns, images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"] },
-    { name: t.acrylicSigns, images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800"] },
+    { name: t.acrylicSigns, images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800"] },
     { name: t.threeDSigns, images: ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"] },
-    { name: t.embossedSigns, images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"] }
+    { name: t.embossedSigns, images: ["https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800", "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800"] }
   ];
 
   return (
@@ -132,7 +132,7 @@ const Indoor = () => {
                 {/* Image 4 - Bottom Right */}
                 <div className="absolute bottom-0 right-0 w-[49%] h-[43%] group">
                   <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=400" alt="Large Format" className="w-full h-full object-cover" />
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400" alt="Large Format" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/40"></div>
                     <div className="absolute bottom-3 left-3 right-3">
                       <span className="text-white font-semibold text-sm">Large Format</span>

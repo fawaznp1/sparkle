@@ -35,7 +35,7 @@ const FleetGraphics = () => {
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.fleetTitle}
           </h2>
-          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <div className="w-24 h-1 bg-[#ffa500] mx-auto"></div>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-3xl mx-auto`}>
             {t.fleetDesc}
           </p>
@@ -70,7 +70,7 @@ const FleetGraphics = () => {
                 onClick={() => setCurrentIndex(index)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 w-[calc(50%-0.25rem)] sm:w-auto ${
                   index === currentIndex
-                    ? 'bg-[#be185d] text-white scale-105 shadow-lg'
+                    ? 'bg-[#ffa500] text-white scale-105 shadow-lg'
                     : isDark
                     ? 'bg-slate-800 text-gray-300 hover:bg-slate-700'
                     : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'

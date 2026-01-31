@@ -31,7 +31,7 @@ const ScrollToTop = () => {
         <button
           onClick={scrollToTop}
           className={`fixed bottom-8 right-8 z-50 w-12 h-12 ${
-            isDark ? 'bg-[#be185d] hover:bg-[#9d1449]' : 'bg-[#be185d] hover:bg-[#9d1449]'
+            isDark ? 'bg-[#ffa500] hover:bg-[#9d1449]' : 'bg-[#ffa500] hover:bg-[#9d1449]'
           } text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center`}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

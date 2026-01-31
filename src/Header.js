@@ -23,10 +23,10 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#be185d] rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#ffa500] rounded-lg flex items-center justify-center">
               <span className="text-white font-black text-lg sm:text-xl">S</span>
             </div>
-            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#be185d]'} transition-colors duration-300`}>
+            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#ffa500]'} transition-colors duration-300`}>
               SPARKLE
             </span>
           </div>
@@ -40,7 +40,7 @@ const Header = () => {
                 className={`${isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-gray-900'} font-semibold transition-colors relative group`}
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#be185d] group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ffa500] group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
             <button
@@ -59,7 +59,7 @@ const Header = () => {
             </button>
             <button
               onClick={toggleLanguage}
-              className={`px-5 py-2.5 ${isDark ? 'bg-gradient-to-r from-[#be185d] to-[#9f1550] hover:from-[#9f1550] hover:to-[#be185d]' : 'bg-gradient-to-r from-[#be185d] to-[#9f1550] hover:from-[#9f1550] hover:to-[#be185d]'} text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#be185d]/50`}
+              className={`px-5 py-2.5 ${isDark ? 'bg-gradient-to-r from-[#ffa500] to-[#9f1550] hover:from-[#9f1550] hover:to-[#ffa500]' : 'bg-gradient-to-r from-[#ffa500] to-[#9f1550] hover:from-[#9f1550] hover:to-[#ffa500]'} text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#ffa500]/50`}
             >
               {language === 'en' ? 'AR' : 'EN'}
             </button>
@@ -69,7 +69,7 @@ const Header = () => {
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleLanguage}
-              className={`px-4 py-2 ${isDark ? 'bg-gradient-to-r from-[#be185d] to-[#9f1550]' : 'bg-gradient-to-r from-[#be185d] to-[#9f1550]'} text-white rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 shadow-lg`}
+              className={`px-4 py-2 ${isDark ? 'bg-gradient-to-r from-[#ffa500] to-[#9f1550]' : 'bg-gradient-to-r from-[#ffa500] to-[#9f1550]'} text-white rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 shadow-lg`}
             >
               {language === 'en' ? 'AR' : 'EN'}
             </button>

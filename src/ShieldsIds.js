@@ -27,7 +27,7 @@ const ShieldsIds = () => {
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.shieldsTitle}
           </h2>
-          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <div className="w-24 h-1 bg-[#ffa500] mx-auto"></div>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -35,7 +35,7 @@ const ShieldsIds = () => {
             {expanded ? t.shieldsDesc : t.shieldsDesc.slice(0, 200) + '...'}
             <button 
               onClick={() => setExpanded(!expanded)}
-              className="text-[#be185d] hover:text-[#9d1449] ml-2 font-medium"
+              className="text-[#ffa500] hover:text-[#9d1449] ml-2 font-medium"
             >
               {expanded ? t.showLess : t.readMore}
             </button>
@@ -52,7 +52,7 @@ const ShieldsIds = () => {
                   />
                 </div>
                 <div className="absolute bottom-3 left-3 right-3 ">
-                  <span className="bg-[#be185d] text-white text-xs px-3 py-3 rounded-full block text-center">
+                  <span className="bg-[#ffa500] text-white text-xs px-3 py-3 rounded-full block text-center">
                     {item.name}
                   </span>
                 </div>

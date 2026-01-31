@@ -14,15 +14,15 @@ const Stickering = () => {
   return (
     <section ref={ref} id="stickering" className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-[#be185d] rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-[#ffa500] rounded-full blur-3xl"></div>
       </div>
 
       <div className={`relative z-10 max-w-full px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-16">
-          <h2 className={`text-3xl sm:text-4xl font-black mb-6 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
+          <h2 className={`text-3xl sm:text-4xl font-black mb-6 ${isDark ? 'text-white' : 'text-[#ffa500]'}`}>
             {t.stickeringTitle}
           </h2>
-          <div className="w-32 h-1 bg-[#be185d] mx-auto rounded-full mb-12"></div>
+          <div className="w-32 h-1 bg-[#ffa500] mx-auto rounded-full mb-12"></div>
         </div>
 
         {/* Row 1 - Shop Images with Chips */}
@@ -33,7 +33,7 @@ const Stickering = () => {
           ].map((item, i) => (
             <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
               <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute top-3 right-3 bg-[#be185d] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+              <div className="absolute top-3 right-3 bg-[#ffa500] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
                 {item.label}
               </div>
             </div>
@@ -57,7 +57,7 @@ const Stickering = () => {
             <div className="flex justify-center mt-6">
               <button
                 onClick={() => setShowDetails(!showDetails)}
-                className={`${isDark ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-[#be185d]'} font-medium transition-colors duration-300 flex items-center gap-2`}
+                className={`${isDark ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-[#ffa500]'} font-medium transition-colors duration-300 flex items-center gap-2`}
               >
                 {showDetails ? t.showLess : t.readMore}
                 <svg className={`w-4 h-4 transition-transform ${showDetails ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
@@ -76,7 +76,7 @@ const Stickering = () => {
           ].map((item, i) => (
             <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
               <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute top-3 right-3 bg-[#be185d] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+              <div className="absolute top-3 right-3 bg-[#ffa500] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
                 {item.label}
               </div>
             </div>
@@ -85,7 +85,7 @@ const Stickering = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
+          <button className="bg-[#ffa500] hover:bg-[#9d1449] text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
             {t.getStickersNow}
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />

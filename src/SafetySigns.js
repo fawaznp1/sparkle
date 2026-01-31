@@ -25,7 +25,7 @@ const SafetySigns = () => {
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.safetyTitle}
           </h2>
-          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <div className="w-24 h-1 bg-[#ffa500] mx-auto"></div>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-3xl mx-auto`}>
             {t.safetyDesc}
           </p>
@@ -40,7 +40,7 @@ const SafetySigns = () => {
                 className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-3 right-3">
-                <span className="bg-[#be185d] text-white text-xs px-3 py-1 rounded-full">
+                <span className="bg-[#ffa500] text-white text-xs px-3 py-1 rounded-full">
                   {sign.name}
                 </span>
               </div>

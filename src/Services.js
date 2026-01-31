@@ -27,7 +27,7 @@ const Services = () => {
         { name: t.premiumPodium, img: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=100" },
         { name: t.gondolas, img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=100" }
       ],
-      color: "#be185d"
+      color: "#ffa500"
     },
     {
       title: "OFFSET PRINTING",
@@ -69,23 +69,23 @@ const Services = () => {
         { name: t.premiumNotesDiaries, img: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=100" },
         { name: t.lanyardsIDCards, img: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=100" }
       ],
-      color: "#be185d"
+      color: "#ffa500"
     }
   ];
 
   return (
     <section ref={ref} className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-12 sm:py-16 md:py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-[#be185d]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-[#ffa500]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-[#3b82f6]/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className={`relative z-10 max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 ${isDark ? 'text-white' : 'text-[#ffa500]'}`}>
             {t.servicesTitle}
           </h2>
-          <div className="w-24 sm:w-32 h-1 bg-[#be185d] mx-auto rounded-full mb-6 sm:mb-8"></div>
+          <div className="w-24 sm:w-32 h-1 bg-[#ffa500] mx-auto rounded-full mb-6 sm:mb-8"></div>
           <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-white/80' : 'text-gray-700'} max-w-3xl mx-auto px-4`}>
             {t.servicesDesc}
           </p>
@@ -137,7 +137,7 @@ const Services = () => {
             <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-white/80' : 'text-gray-700'} mb-6 sm:mb-8`}>
               Let's create something extraordinary together
             </p>
-            <button className="group bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-[15px] transition-all duration-500 transform hover:scale-110 shadow-2xl text-sm sm:text-base">
+            <button className="group bg-[#ffa500] hover:bg-[#9d1449] text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-[15px] transition-all duration-500 transform hover:scale-110 shadow-2xl text-sm sm:text-base">
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Get Started Today
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">

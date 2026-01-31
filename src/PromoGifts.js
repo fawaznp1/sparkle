@@ -25,7 +25,7 @@ const PromoGifts = () => {
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.promoTitle}
           </h2>
-          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <div className="w-24 h-1 bg-[#ffa500] mx-auto"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -40,7 +40,7 @@ const PromoGifts = () => {
                   />
                 </div>
                 <div className="absolute top-3 left-3">
-                  <span className="bg-[#be185d] text-white text-xs px-3 py-1 rounded-full">
+                  <span className="bg-[#ffa500] text-white text-xs px-3 py-1 rounded-full">
                     {gift.name}
                   </span>
                 </div>
@@ -53,7 +53,7 @@ const PromoGifts = () => {
               {expanded ? t.promoDesc : t.promoDesc.slice(0, 200) + '...'}
               <button 
                 onClick={() => setExpanded(!expanded)}
-                className="text-[#be185d] hover:text-[#9d1449] ml-2 font-medium"
+                className="text-[#ffa500] hover:text-[#9d1449] ml-2 font-medium"
               >
                 {expanded ? t.showLess : t.readMore}
               </button>

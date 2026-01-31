@@ -24,15 +24,15 @@ const Indoor = () => {
   return (
     <section ref={ref} id="indoor" className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-[#be185d] rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-[#ffa500] rounded-full blur-3xl"></div>
       </div>
 
       <div className={`relative z-10 max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12">
-          <h2 className={`text-3xl sm:text-4xl font-black mb-4 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
+          <h2 className={`text-3xl sm:text-4xl font-black mb-4 ${isDark ? 'text-white' : 'text-[#ffa500]'}`}>
             {t.indoorTitle}
           </h2>
-          <div className="w-32 h-1 bg-[#be185d] mx-auto rounded-full"></div>
+          <div className="w-32 h-1 bg-[#ffa500] mx-auto rounded-full"></div>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -47,12 +47,12 @@ const Indoor = () => {
                     <div key={i} className={`${isDark ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-gray-100 hover:bg-gray-200 border-gray-200'} border rounded-xl p-4 transition-all duration-300 hover:translate-x-2`}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-[#be185d] rounded-full"></div>
+                          <div className="w-2 h-2 bg-[#ffa500] rounded-full"></div>
                           <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold`}>{type.name}</span>
                         </div>
                         <button
                           onClick={() => { setSelectedType(type); setModalOpen(true); }}
-                          className="text-[#be185d] hover:text-[#9d1449] text-sm font-medium underline transition-colors"
+                          className="text-[#ffa500] hover:text-[#9d1449] text-sm font-medium underline transition-colors"
                         >
                           {t.view}
                         </button>
@@ -68,7 +68,7 @@ const Indoor = () => {
                   {!showDetails && (
                     <button
                       onClick={() => setShowDetails(true)}
-                      className={`${isDark ? 'text-[#be185d] hover:text-[#9d1449]' : 'text-[#be185d] hover:text-[#9d1449]'} font-medium underline transition-colors`}
+                      className={`${isDark ? 'text-[#ffa500] hover:text-[#9d1449]' : 'text-[#ffa500] hover:text-[#9d1449]'} font-medium underline transition-colors`}
                     >
                       {t.seeMore}
                     </button>
@@ -80,7 +80,7 @@ const Indoor = () => {
                     {t.indoorDesc2}{' '}
                     <button
                       onClick={() => setShowDetails(false)}
-                      className={`${isDark ? 'text-[#be185d] hover:text-[#9d1449]' : 'text-[#be185d] hover:text-[#9d1449]'} font-medium underline transition-colors`}
+                      className={`${isDark ? 'text-[#ffa500] hover:text-[#9d1449]' : 'text-[#ffa500] hover:text-[#9d1449]'} font-medium underline transition-colors`}
                     >
                       {t.showLess}
                     </button>
@@ -103,7 +103,7 @@ const Indoor = () => {
                     <div className="absolute bottom-3 left-3 right-3">
                       <span className="text-white font-bold text-base">Backlit Signs</span>
                     </div>
-                    <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-[#ffa500] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
 
@@ -115,7 +115,7 @@ const Indoor = () => {
                     <div className="absolute bottom-3 left-3 right-3">
                       <span className="text-white font-bold text-sm">3D Signs</span>
                     </div>
-                    <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-[#ffa500] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
 
@@ -127,7 +127,7 @@ const Indoor = () => {
                     <div className="absolute bottom-3 left-3 right-3">
                       <span className="text-white font-bold text-sm">Acrylic Signs</span>
                     </div>
-                    <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-[#ffa500] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
 
@@ -139,7 +139,7 @@ const Indoor = () => {
                     <div className="absolute bottom-2 left-2 right-2">
                       <span className="text-white font-bold text-xs">Vinyl</span>
                     </div>
-                    <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-[#ffa500] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
 
@@ -151,14 +151,14 @@ const Indoor = () => {
                     <div className="absolute bottom-2 left-2 right-2">
                       <span className="text-white font-bold text-xs">Stickers</span>
                     </div>
-                    <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-[#ffa500] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
               </div>
 
               {/* CTA Button */}
               <div className="text-center mt-6">
-                <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl inline-flex items-center gap-2">
+                <button className="bg-[#ffa500] hover:bg-[#9d1449] text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl inline-flex items-center gap-2">
                   {t.getSignsNow}
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />

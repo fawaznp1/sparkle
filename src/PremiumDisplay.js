@@ -16,7 +16,7 @@ const PremiumDisplay = () => {
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.premiumTitle}
           </h2>
-          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <div className="w-24 h-1 bg-[#ffa500] mx-auto"></div>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-2xl mx-auto`}>
             {t.premiumDesc}
           </p>

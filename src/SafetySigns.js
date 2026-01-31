@@ -3,59 +3,43 @@ import { useTheme } from './ThemeContext';
 const SafetySigns = () => {
   const { isDark } = useTheme();
   
-  return (
-    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-      </div>
+  const signs = [
+    { name: 'Acrylic Safety Signs', image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=600&h=600&fit=crop' },
+    { name: 'Hanging Safety Signs', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=600&fit=crop' },
+    { name: 'Standing Safety Signs', image: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=600&h=600&fit=crop' },
+    { name: 'Sticker Safety Signs', image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&h=600&fit=crop' },
+    { name: 'Reflective Signs', image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=600&h=600&fit=crop' },
+    { name: 'Reflective Stickers', image: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=600&fit=crop' }
+  ];
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+  return (
+    <section className={`${isDark ? 'bg-slate-900' : 'bg-white'} py-16 px-4 transition-colors duration-300`}>
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
-            SAFETY SIGNS
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            Safety Signs
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-3xl mx-auto`}>
+            All our health and safety signs are offered in a variety of sizes to full legal requirements and ensure they are visible in any environment and at night via our glow in the dark range.
+          </p>
         </div>
 
-        <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12`}>
-          <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg text-center mb-12 max-w-3xl mx-auto`}>
-            Keep your workplace safe with our comprehensive range of safety signage.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer shadow-2xl transform hover:-translate-y-2">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="text-white/40 text-6xl">⚠️</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {signs.map((sign, index) => (
+            <div key={index} className="relative group overflow-hidden">
+              <img 
+                src={sign.image} 
+                alt={sign.name} 
+                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-3 right-3">
+                <span className="bg-[#be185d] text-white text-xs px-3 py-1 rounded-full">
+                  {sign.name}
+                </span>
               </div>
             </div>
-
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer shadow-2xl transform hover:-translate-y-2 mt-8">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="text-white/40 text-6xl">🚫</div>
-              </div>
-            </div>
-
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer shadow-2xl transform hover:-translate-y-2">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="text-white/40 text-6xl">✅</div>
-              </div>
-            </div>
-
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer shadow-2xl transform hover:-translate-y-2 mt-8">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="text-white/40 text-6xl">ℹ️</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="group bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
-              Get Quote
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </section>

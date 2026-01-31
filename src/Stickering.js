@@ -6,140 +6,92 @@ const Stickering = () => {
   const { isDark } = useTheme();
 
   return (
-    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <section className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-[#be185d] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
+      <div className="relative z-10 max-w-full px-4">
+        <div className="text-center mb-16">
+          <h2 className={`text-5xl md:text-6xl font-black mb-6 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
             STICKERING SERVICE
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+          <div className="w-32 h-1 bg-[#be185d] mx-auto rounded-full mb-12"></div>
         </div>
 
-        {/* Content Section */}
-        <div className="max-w-6xl mx-auto mb-16">
-          {/* Hero Card */}
-          <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12 mb-6`}>
-            <div className="flex flex-col lg:flex-row gap-8 items-start">
-              <div className="flex-1">
-                <h3 className={`text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>As your best sales man...</h3>
-                <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg leading-relaxed mb-4`}>
-                  Advertisers are beginning to understand the importance of stickers in the field of marketing. 
-                  The cost is definitely cheaper when compared to other modes of advertisements and the target 
-                  audience is unbeatable.
-                </p>
-                
-                {/* Expandable Details */}
-                <div className={`transition-all duration-500 ${showDetails ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                  <div className={`space-y-4 pt-4 ${isDark ? 'border-t border-white/10' : 'border-t border-gray-200'}`}>
-                    <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} leading-relaxed`}>
-                      The best part, you do not even have to open your mouth. What could get better than that? 
-                      You can even use graphics on your stickers to increase the attention span of the target audience.
-                    </p>
-                    <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} leading-relaxed`}>
-                      So get your artistic sticker ready to make a lasting impression and make your product pop up 
-                      in the minds of the people.
-                    </p>
-                  </div>
-                </div>
+        {/* Row 1 - Shop Images with Chips */}
+        <div className="grid grid-cols-2 gap-4 mb-16 max-w-7xl mx-auto">
+          {[
+            { img: "https://i.pinimg.com/1200x/53/87/53/53875390883d03c74a12ba02617d6547.jpg", label: "Printed Stickers" },
+            { img: "https://static.nike.com/a/images/f_auto/ffcd8bd7-d749-48a5-8aa9-9cc78d3561f2/image.jpeg", label: "Plotter Cut Stickers" }
+          ].map((item, i) => (
+            <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
+              <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute top-3 right-3 bg-[#be185d] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                {item.label}
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Middle - Text Content */}
+        <div className="max-w-5xl mx-auto mb-16">
+          <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray'}  p-8 md:p-12`}>
+            <h3 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6 text-center`}>As your best sales man...</h3>
+            <p className={`${isDark ? 'text-white/80' : 'text-gray-700'} text-lg leading-relaxed text-center`}>
+              Advertisers are beginning to understand the importance of stickers in the field of marketing. 
+              The cost is definitely cheaper when compared to other modes of advertisements and the target 
+              audience is unbeatable.
+            </p>
+            
+            <div className={`transition-all duration-500 ${showDetails ? 'max-h-96 opacity-100 mt-6' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+              <p className={`${isDark ? 'text-white/80' : 'text-gray-700'} text-lg leading-relaxed text-center`}>
+                The best part, you do not even have to open your mouth. What could get better than that? 
+                You can even use graphics on your stickers to increase the attention span of the target audience. 
+                So get your artistic sticker ready to make a lasting impression and make your product pop up 
+                in the minds of the people.
+              </p>
+            </div>
+            
+            <div className="flex justify-center mt-6">
               <button
                 onClick={() => setShowDetails(!showDetails)}
-                className="group bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg flex items-center gap-2 whitespace-nowrap text-sm"
+                className={`${isDark ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-[#be185d]'} font-medium transition-colors duration-300 flex items-center gap-2`}
               >
-                {showDetails ? 'Show Less' : 'More Details'}
-                <svg className={`w-3 h-3 transition-transform ${showDetails ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                {showDetails ? 'Show Less' : 'Read More'}
+                <svg className={`w-4 h-4 transition-transform ${showDetails ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
             </div>
           </div>
-
-          {/* Sticker Types - Horizontal Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            {["Printed Stickers", "Plotter Cut Stickers", "UV Stickers", "Laminated Stickers"].map((type, i) => (
-              <div key={i} className={`group backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20 hover:border-purple-400/50' : 'bg-white border-gray-200 hover:border-purple-400'} border rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl`}>
-                <div className="flex flex-col items-center text-center gap-3">
-                  <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-                  <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold text-sm`}>{type}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
         </div>
-        
-         {/* Advanced Image Gallery */}
-         <div className="backdrop-blur-2xl bg-gradient-to-brs from-purple-500/10 to-pink-500/10 p-8">
-           <h3 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-8 text-center`}>Our Work Gallery</h3>
-          
-          {/* Masonry Grid Layout */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {/* Large Featured - Spans 2 columns and 2 rows */}
-            <div className="col-span-2 row-span-2 group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 cursor-pointer">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="text-white/40 text-8xl">🏷️</div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold text-2xl`}>Featured Work</span>
-                <p className={`${isDark ? 'text-white/80' : 'text-gray-600'} text-sm mt-1`}>Premium Sticker Design</p>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-            </div>
 
-            {/* UV Stickers - Spans 2 columns horizontally */}
-            <div className="col-span-2 group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.02] transition-all duration-500 cursor-pointer">
-              <div className="aspect-[2/1] flex items-center justify-center">
-                <div className="text-white/40 text-6xl">🏷️</div>
+        {/* Row 2 - Shop Images */}
+        <div className="grid grid-cols-2 gap-4 mb-16 max-w-7xl mx-auto">
+          {[
+            { img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800", label: "UV Stickers" },
+            { img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800", label: "Laminated Stickers" }
+          ].map((item, i) => (
+            <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
+              <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute top-3 right-3 bg-[#be185d] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                {item.label}
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold`}>UV Stickers</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
             </div>
+          ))}
+        </div>
 
-            {/* Regular Image */}
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.05] transition-all duration-500 cursor-pointer">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="text-white/40 text-5xl">🏷️</div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-3 left-3 right-3">
-                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold text-sm`}>Printed</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-            </div>
-
-            {/* Regular Image */}
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.05] transition-all duration-500 cursor-pointer">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="text-white/40 text-5xl">🏷️</div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-3 left-3 right-3">
-                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold text-sm`}>Plotter Cut</span>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-cyan-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
-            </div>
-          </div>
-        
-           {/* CTA Button */}
-           <div className="text-center mt-8">
-             <button className="group bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
-               Get Your Stickers Now
-               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                 <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-               </svg>
-             </button>
-           </div>
-         </div>
-       </div>
+        {/* CTA */}
+        <div className="text-center">
+          <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
+            Get Your Stickers Now
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </section>
   );
 };

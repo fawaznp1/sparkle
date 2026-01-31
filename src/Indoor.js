@@ -93,51 +93,63 @@ const Indoor = () => {
             <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} border rounded-2xl p-6`}>
               <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6 text-center`}>{t.ourWork}</h3>
               
-              {/* Collage Layout */}
-              <div className="relative h-[600px]">
-                {/* Image 1 - Top Left */}
-                <div className="absolute top-0 left-0 w-[55%] h-[45%] group">
-                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
+              {/* Modern Masonry Grid Layout */}
+              <div className="grid grid-cols-6 grid-rows-6 gap-3 h-[600px]">
+                {/* Image 1 - Large Top Left */}
+                <div className="col-span-4 row-span-3 group">
+                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.02] hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
                     <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Backlit Signs" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-3 left-3 right-3">
-                      <span className="text-white font-semibold text-sm">Backlit Signs</span>
+                      <span className="text-white font-bold text-base">Backlit Signs</span>
                     </div>
                     <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
 
-                {/* Image 2 - Top Right */}
-                <div className="absolute top-0 right-0 w-[42%] h-[52%] group">
-                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
+                {/* Image 2 - Tall Right */}
+                <div className="col-span-2 row-span-4 group">
+                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.02] hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
                     <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400" alt="3D Signs" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-3 left-3 right-3">
-                      <span className="text-white font-semibold text-sm">3D Signs</span>
+                      <span className="text-white font-bold text-sm">3D Signs</span>
                     </div>
                     <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
 
-                {/* Image 3 - Bottom Left */}
-                <div className="absolute bottom-0 left-0 w-[48%] h-[48%] group">
-                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
+                {/* Image 3 - Wide Bottom Left */}
+                <div className="col-span-3 row-span-3 group">
+                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.02] hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
                     <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=400" alt="Acrylic Signs" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-3 left-3 right-3">
-                      <span className="text-white font-semibold text-sm">Acrylic Signs</span>
+                      <span className="text-white font-bold text-sm">Acrylic Signs</span>
                     </div>
                     <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>
                 </div>
 
-                {/* Image 4 - Bottom Right */}
-                <div className="absolute bottom-0 right-0 w-[49%] h-[43%] group">
-                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
+                {/* Image 4 - Small Square */}
+                <div className="col-span-1 row-span-3 group">
+                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.02] hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
                     <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400" alt="Large Format" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/40"></div>
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <span className="text-white font-semibold text-sm">Large Format</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <span className="text-white font-bold text-xs">Vinyl</span>
+                    </div>
+                    <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                  </div>
+                </div>
+
+                {/* Image 5 - Small Square Bottom Right */}
+                <div className="col-span-2 row-span-2 group">
+                  <div className="relative w-full h-full bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-[1.02] hover:z-10 transition-all duration-300 cursor-pointer shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400" alt="Stickers" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <span className="text-white font-bold text-xs">Stickers</span>
                     </div>
                     <div className="absolute inset-0 bg-[#be185d] opacity-0 group-hover:opacity-10 transition-opacity"></div>
                   </div>

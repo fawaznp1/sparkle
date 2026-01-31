@@ -108,7 +108,7 @@ const Branding = () => {
       <div className={`relative py-20 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'} overflow-hidden`}>
         {/* Stats Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <div className="relative text-center p-8 rounded-2xl overflow-hidden">
               <div className="absolute inset-0 opacity-30">
                 <div className="w-full h-full" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400)', backgroundSize: 'cover', backgroundPosition: 'center' }} />

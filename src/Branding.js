@@ -1,152 +1,222 @@
 import { useTheme } from './ThemeContext';
+import { useState, useEffect, useRef } from 'react';
+
+const CountUp = ({ end, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    let start = 0;
+    const increment = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [isVisible, end, duration]);
+
+  return <span ref={ref}>{count}+</span>;
+};
 
 const Branding = () => {
   const { isDark } = useTheme();
   
   return (
-    <section className={`relative ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} overflow-hidden transition-colors duration-300`}>
+    <section className={`relative ${isDark ? 'bg-slate-900' : 'bg-gray-50'} overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-40 right-40 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+        <div className="absolute top-40 right-40 w-96 h-96 bg-[#be185d] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 left-40 w-96 h-96 bg-[#3b82f6] rounded-full blur-3xl"></div>
       </div>
 
+      {/* Hero Section */}
       <div className="relative z-10 min-h-screen flex items-center py-20">
-        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            
-            <div className="space-y-12">
-              <div className="space-y-6">
-                <div className={`inline-flex items-center gap-3 px-5 py-2 ${isDark ? 'bg-white/5 border-white/10' : 'bg-gray-200 border-gray-300'} border rounded-full backdrop-blur-sm`}>
-                  <div className={`w-2 h-2 ${isDark ? 'bg-white' : 'bg-purple-600'} rounded-full`}></div>
-                  <span className={`${isDark ? 'text-white/70' : 'text-gray-600'} text-sm tracking-wide uppercase`}>Brand Identity</span>
-                </div>
-                
-                <h1 className={`text-6xl lg:text-7xl xl:text-8xl font-black ${isDark ? 'text-white' : 'text-gray-900'} leading-[0.9] tracking-tight`}>
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Heading with Background Image */}
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" 
+                alt="Corporate Branding"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[0.9] mb-4">
                   CORPORATE<br/>
-                  <span className={isDark ? 'text-white/40' : 'text-gray-400'}>BRANDING</span>
+                  <span className="text-[#be185d]">BRANDING</span>
                 </h1>
-                
-                <p className={`text-xl ${isDark ? 'text-white/60' : 'text-gray-600'} leading-relaxed max-w-xl`}>
-                  Crafting distinctive brand identities that resonate with your audience and elevate your business presence in the market.
-                </p>
-              </div>
-
-              <div className={`grid grid-cols-3 gap-8 pt-8 ${isDark ? 'border-t border-white/10' : 'border-t border-gray-300'}`}>
-                <div>
-                  <div className={`text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-1`}>500+</div>
-                  <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Projects</div>
+                <div className="flex items-center gap-2 mt-6">
+                  <div className="w-2 h-2 bg-[#be185d] rounded-full"></div>
+                  <span className="text-white/70 text-sm font-medium uppercase tracking-wider">Brand Identity</span>
                 </div>
-                <div>
-                  <div className={`text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-1`}>50+</div>
-                  <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Clients</div>
-                </div>
-                <div>
-                  <div className={`text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-1`}>5+</div>
-                  <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Years</div>
-                </div>
-              </div>
-
-              <div className="flex gap-4 pt-4">
-                <button className={`px-8 py-4 ${isDark ? 'bg-white text-slate-900' : 'bg-purple-600 text-white'} font-semibold rounded-full hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-xl`}>
-                  Start Project
-                </button>
-                <button className={`px-8 py-4 ${isDark ? 'bg-white/5 text-white border-white/10' : 'bg-gray-200 text-gray-900 border-gray-300'} font-semibold rounded-full border hover:opacity-80 transition-all duration-300`}>
-                  View Work
-                </button>
               </div>
             </div>
 
-            <div className="relative">
-              <div className={`backdrop-blur-xl ${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} border rounded-3xl p-10 lg:p-12 shadow-2xl`}>
-                
-                <div className={`w-16 h-16 ${isDark ? 'bg-white' : 'bg-purple-600'} rounded-2xl flex items-center justify-center mb-8 shadow-lg`}>
-                  <svg className={`w-8 h-8 ${isDark ? 'text-slate-900' : 'text-white'}`} fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
-                  </svg>
-                </div>
-
-                <div className="mb-10">
-                  <h2 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-3`}>SPARKLE</h2>
-                  <p className={`text-lg ${isDark ? 'text-white/70' : 'text-gray-600'} leading-relaxed`}>
-                    Comprehensive brand solutions for businesses of all sizes
+            {/* Right Side - Text Content */}
+            <div className="space-y-8">
+              <div>
+                <h2 className={`text-3xl sm:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6`}>
+                  Distinctive creative
+                </h2>
+                <div className={`space-y-4 text-base sm:text-lg ${isDark ? 'text-white/70' : 'text-gray-600'} leading-relaxed`}>
+                  <p>
+                    Our team assist corporate identity design issues by understanding the importance of the right brand imaging and by understanding the complex world of todays business.
+                  </p>
+                  <p>
+                    Listening to the needs of our customers, giving them and their projects maximum attention including a well defined brand strategy and creativity at the same time, form the right combination for brand success.
+                  </p>
+                  <p>
+                    By following each project with disciplines like flexibility, adaptability and rapidity - from the initial sketches to the hand-over to the client we ensure design consistency.
                   </p>
                 </div>
+              </div>
 
-                <div className="space-y-4 mb-10">
-                  {[
-                    { icon: "🏢", title: "Large Corporations", desc: "Enterprise-level branding" },
-                    { icon: "🚀", title: "Growing Businesses", desc: "Scalable brand systems" },
-                    { icon: "⭐", title: "Established Brands", desc: "Rebranding & evolution" },
-                    { icon: "💡", title: "New Startups", desc: "Brand from scratch" }
-                  ].map((item, index) => (
-                    <div key={index} className={`flex items-center gap-4 p-4 ${isDark ? 'bg-white/5 hover:bg-white/10' : 'bg-gray-100 hover:bg-gray-200'} rounded-xl transition-all duration-300 group`}>
-                      <div className="text-xl group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                      <div>
-                        <h4 className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold text-sm`}>{item.title}</h4>
-                        <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-xs`}>{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className={`text-center p-6 ${isDark ? 'bg-white/5 border-white/10' : 'bg-gray-100 border-gray-200'} rounded-2xl border`}>
-                  <div className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold mb-1`}>Global Reach</div>
-                  <div className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>Regional • National • International</div>
-                </div>
+              <div className={`p-6 ${isDark ? 'bg-white/5 border-white/10' : 'bg-gray-100 border-gray-200'} border rounded-2xl`}>
+                <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-3`}>SPARKLE offers</h3>
+                <p className={`${isDark ? 'text-white/70' : 'text-gray-600'} leading-relaxed`}>
+                  design and brand solutions for clients: large or small. Established or new start-ups. Regionally, nationally and internationally, anywhere in the world.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className={`relative z-10 py-32 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="mb-20">
-            <h2 className={`text-5xl lg:text-6xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Our Process</h2>
-            <p className={`text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>From concept to completion</p>
+      {/* Stats Section */}
+      <div className={`relative py-20 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'} overflow-hidden`}>
+        {/* Stats Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-3 gap-8">
+            <div className="relative text-center p-8 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 opacity-30">
+                <div className="w-full h-full" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+              </div>
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-black text-[#be185d] mb-2">
+                  <CountUp end={500} />
+                </div>
+                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Projects</div>
+              </div>
+            </div>
+            <div className="relative text-center p-8 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 opacity-30">
+                <div className="w-full h-full" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+              </div>
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-black text-[#be185d] mb-2">
+                  <CountUp end={50} />
+                </div>
+                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Clients</div>
+              </div>
+            </div>
+            <div className="relative text-center p-8 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 opacity-30">
+                <div className="w-full h-full" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400)', backgroundSize: 'cover', backgroundPosition: 'center' }} />
+              </div>
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-black text-[#be185d] mb-2">
+                  <CountUp end={5} />
+                </div>
+                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Years</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      {/* Services Grid */}
+      <div className={`relative z-10 py-12 sm:py-16 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-12">
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>What We Offer</h2>
+            <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>Comprehensive brand solutions</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: "01", title: "Discovery", desc: "Understanding your brand vision, market position, and business objectives" },
-              { num: "02", title: "Strategy", desc: "Developing comprehensive brand strategy and positioning framework" },
-              { num: "03", title: "Design", desc: "Creating distinctive visual identity and complete brand asset system" },
-              { num: "04", title: "Launch", desc: "Implementing and delivering your complete brand system with support" }
+              { title: "Large Corporations", desc: "Enterprise-level branding" },
+              { title: "Growing Businesses", desc: "Scalable brand systems" },
+              { title: "Established Brands", desc: "Rebranding & evolution" },
+              { title: "New Startups", desc: "Brand from scratch" }
             ].map((item, index) => (
-              <div key={index} className="group">
-                <div className={`${isDark ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-white hover:bg-gray-50 border-gray-200'} border rounded-2xl p-8 transition-all duration-500 hover:scale-105 h-full`}>
-                  <div className={`text-6xl font-black ${isDark ? 'text-white/20 group-hover:text-white/30' : 'text-gray-200 group-hover:text-gray-300'} mb-6 transition-colors duration-300`}>
-                    {item.num}
-                  </div>
-                  <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>{item.title}</h3>
-                  <p className={`${isDark ? 'text-white/50' : 'text-gray-600'} leading-relaxed`}>{item.desc}</p>
+              <div key={index} className={`group relative ${isDark ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-white hover:shadow-2xl border-gray-200'} border rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2`}>
+                <div className="absolute top-0 left-0 w-1 h-full bg-[#be185d] rounded-l-2xl transition-all duration-300"></div>
+                <div className="w-14 h-14 bg-[#be185d]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#be185d] transition-colors duration-300">
+                  <svg className="w-7 h-7 text-[#be185d] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
                 </div>
+                <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-3 group-hover:text-[#be185d] transition-colors duration-300`}>{item.title}</h3>
+                <p className={`text-sm leading-relaxed ${isDark ? 'text-white/60' : 'text-gray-600'}`}>{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className={`relative z-10 py-32 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} border rounded-3xl p-12 lg:p-16 backdrop-blur-xl`}>
-            <div className="space-y-10 text-lg lg:text-xl leading-relaxed">
-              <p className={isDark ? 'text-white/80' : 'text-gray-700'}>
-                Our team assists <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold`}>corporate identity design</span> issues by understanding the importance of the right brand imaging and by understanding the complex world of today's business.
-              </p>
-              
-              <div className={`relative pl-8 ${isDark ? 'border-l-2 border-white/20' : 'border-l-2 border-gray-300'}`}>
-                <p className={isDark ? 'text-white/80' : 'text-gray-700'}>
-                  Listening to the needs of our customers, giving them and their projects maximum attention including a <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold`}>well-defined brand strategy</span> and creativity at the same time, form the right combination for brand success.
-                </p>
-              </div>
-              
-              <p className={isDark ? 'text-white/80' : 'text-gray-700'}>
-                By following each project with disciplines like <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold`}>flexibility, adaptability and rapidity</span> - from the initial sketches to the hand-over to the client we ensure design consistency.
-              </p>
+      {/* Process Section */}
+      <div className={`relative z-10 py-16 sm:py-20 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Our Process</h2>
+            <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>From concept to completion</p>
+          </div>
+
+          <div className="relative">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#be185d]/30 hidden md:block"></div>
+            
+            <div className="space-y-12">
+              {[
+                { num: "01", title: "Discovery", desc: "Understanding your brand vision and objectives" },
+                { num: "02", title: "Strategy", desc: "Developing brand strategy framework" },
+                { num: "03", title: "Design", desc: "Creating visual identity system" },
+                { num: "04", title: "Launch", desc: "Implementing complete brand system" }
+              ].map((item, index) => (
+                <div key={index} className="relative flex items-start gap-8">
+                  {/* Timeline Dot */}
+                  <div className="relative z-10 flex-shrink-0">
+                    <div className="w-16 h-16 bg-[#be185d] rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-xl font-black text-white">{item.num}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Content Card */}
+                  <div className={`flex-1 ${isDark ? 'bg-white/5 hover:bg-white/10' : 'bg-white hover:shadow-xl'} rounded-2xl p-6 md:p-8 transition-all duration-300 group`}>
+                    <h3 className={`text-xl md:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-3 group-hover:text-[#be185d] transition-colors`}>{item.title}</h3>
+                    <p className={`text-sm md:text-base ${isDark ? 'text-white/70' : 'text-gray-600'} leading-relaxed`}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
+
     </section>
   );
 };

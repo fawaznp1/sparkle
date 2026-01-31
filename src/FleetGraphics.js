@@ -1,60 +1,78 @@
 import { useTheme } from './ThemeContext';
+import { useState, useEffect } from 'react';
 
 const FleetGraphics = () => {
   const { isDark } = useTheme();
+  const [currentIndex, setCurrentIndex] = useState(0);
   
-  return (
-    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-      </div>
+  const vehicles = [
+    { type: 'Large Size Vehicles', image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=500&fit=crop' },
+    { type: 'Medium Size Vehicles', image: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=800&h=500&fit=crop' },
+    { type: 'Small Size Vehicles', image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=500&fit=crop' },
+    { type: 'Complete Wrapping', image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=500&fit=crop' },
+    { type: 'Plotter Cut Stickering', image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop' },
+    { type: 'UV Printed Stickering', image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop' },
+    { type: 'Laminated Stickering', image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop' }
+  ];
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % vehicles.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [vehicles.length]);
+
+  return (
+    <section className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
-            FLEET GRAPHICS
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            Fleet Graphics
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-3xl mx-auto`}>
+            These billboards on wheels are high impact mobile marketing techniques, proven to increase brand awareness.
+          </p>
         </div>
 
-        <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12`}>
-          <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg text-center mb-12 max-w-3xl mx-auto`}>
-            Transform your vehicles into mobile billboards with our eye-catching fleet graphics.
-          </p>
-
-          <div className="relative h-[400px] max-w-5xl mx-auto">
-            <div className="absolute left-0 top-0 w-[45%] h-[280px] group">
-              <div className="relative w-full h-full backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-7xl">🚐</div>
-                </div>
+        <div className="">
+          <div className="max-w-6xl mx-auto relative h-96 overflow-hidden">
+            {vehicles.map((vehicle, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                  index === currentIndex
+                    ? 'translate-x-0 opacity-100'
+                    : index < currentIndex
+                    ? '-translate-x-full opacity-0'
+                    : 'translate-x-full opacity-0'
+                }`}
+              >
+                <img
+                  src={vehicle.image}
+                  alt={vehicle.type}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </div>
-
-            <div className="absolute left-[25%] top-[60px] w-[50%] h-[300px] group z-10">
-              <div className="relative w-full h-full backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-7xl">🚚</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute right-0 top-[40px] w-[45%] h-[280px] group">
-              <div className="relative w-full h-full backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white/40 text-7xl">🚗</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="text-center mt-12">
-            <button className="group bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
-              Get Quote
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
+          <div className="mt-8 flex justify-center gap-1 overflow-x-auto pb-2 pt-2">
+            {vehicles.map((vehicle, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-[#be185d] text-white scale-110'
+                    : isDark
+                    ? 'bg-slate-800 text-gray-300 hover:bg-slate-700'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                }`}
+              >
+                {vehicle.type}
+              </button>
+            ))}
           </div>
         </div>
       </div>

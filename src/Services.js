@@ -137,14 +137,14 @@ const Services = () => {
             <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-white/80' : 'text-gray-700'} mb-6 sm:mb-8`}>
               Let's create something extraordinary together
             </p>
-            <button className="group bg-[#ffa500] hover:bg-[#9d1449] text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-[15px] transition-all duration-500 transform hover:scale-110 shadow-2xl text-sm sm:text-base">
+            <a href="#contact" className="group bg-[#ffa500] hover:bg-[#9d1449] text-white font-bold py-3 px-6 sm:py-4 sm:px-8 rounded-[15px] transition-all duration-500 transform hover:scale-110 shadow-2xl text-sm sm:text-base inline-block">
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Get Started Today
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

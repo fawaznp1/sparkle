@@ -85,12 +85,12 @@ const Stickering = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <button className="bg-[#ffa500] hover:bg-[#9d1449] text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
+          <a href="#contact" className="bg-[#ffa500] hover:bg-[#9d1449] text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
             {t.getStickersNow}
             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </button>
+          </a>
         </div>
       </div>
     </section>

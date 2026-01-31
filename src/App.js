@@ -13,6 +13,7 @@ import SafetySigns from './SafetySigns';
 import Services from './Services';
 import ShieldsIds from './ShieldsIds';
 import Stickering from './Stickering';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       <PromoGifts />
       <ShieldsIds />
       <Contact />
-       <Footer /> 
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }

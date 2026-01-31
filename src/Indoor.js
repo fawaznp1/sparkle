@@ -14,11 +14,11 @@ const Indoor = () => {
   const [ref, isVisible] = useScrollAnimation();
 
   const signTypes = [
-    { name: t.largeFormatSigns, images: ["https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800", "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800"] },
+    { name: t.largeFormatSigns, images: ["https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800", "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800"] },
     { name: t.backlitSigns, images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"] },
     { name: t.acrylicSigns, images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800"] },
     { name: t.threeDSigns, images: ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"] },
-    { name: t.embossedSigns, images: ["https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800", "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800"] }
+    { name: t.embossedSigns, images: ["https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800", "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800"] }
   ];
 
   return (

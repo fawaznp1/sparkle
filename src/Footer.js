@@ -103,16 +103,18 @@ const Footer = () => {
         </div>
 
         <div className={`pt-8 ${isDark ? 'border-t border-white/10' : 'border-t border-gray-200'} flex flex-col sm:flex-row justify-between items-center gap-4`}>
-          <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
-            {t.copyright}
+          
+            <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
+            {t.developedBy}
           </p>
+          
           <div className="flex gap-6 text-sm">
             <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>{t.privacy}</a>
             <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>{t.terms}</a>
             <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>{t.cookies}</a>
           </div>
-          <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
-            {t.developedBy}
+        <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
+            {t.copyright}
           </p>
         </div>
       </div>

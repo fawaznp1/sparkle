@@ -77,7 +77,7 @@ const Footer = () => {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  info@sparkle.com
+                  studio@sparkle-adv.net
                 </a>
               </li>
               <li>
@@ -104,9 +104,14 @@ const Footer = () => {
 
         <div className={`pt-8 ${isDark ? 'border-t border-white/10' : 'border-t border-gray-200'} flex flex-col sm:flex-row justify-between items-center gap-4`}>
           
-            <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
+            <a
+          href="https://www.fawaznp.in" target="_blank" rel="noopener noreferrer" className={`${isDark ? 'text-white/50 hover:text-[#ffa500]' : 'text-gray-500 hover:text-[#ffa500]'} text-sm transition-colors underline flex items-center gap-2`}>
+           
             {t.developedBy}
-          </p>
+             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
           
           <div className="flex gap-6 text-sm">
             <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#ffa500]'} transition-colors`}>{t.privacy}</a>

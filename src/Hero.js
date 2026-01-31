@@ -100,9 +100,9 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 mb-8">
-              <button className="bg-[#ffa500] hover:bg-[#9f1550] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#ffa500]/50">
+              <a href="#services" className="bg-[#ffa500] hover:bg-[#9f1550] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#ffa500]/50 inline-block" >
                 {t.getStarted} →
-              </button>
+              </a>
             </div>
             
             <div className="flex items-center gap-4 sm:gap-8">

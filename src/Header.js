@@ -13,7 +13,7 @@ const Header = () => {
     { name: t.services, href: '#services' },
     { name: t.branding, href: '#branding' },
     { name: t.stickering, href: '#stickering' },
-    { name: t.signs, href: '#signs' },
+    { name: t.signs, href: '#indoor' },
     { name: t.contact, href: '#contact' }
   ];
 
@@ -23,9 +23,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#ffa500] rounded-lg flex items-center justify-center">
-              <span className="text-white font-black text-lg sm:text-xl">S</span>
-            </div>
+            <img src="./Sparkle logo circle.png" alt="Sparkle Logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg object-cover" />
             <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#ffa500]'} transition-colors duration-300`}>
               SPARKLE
             </span>

@@ -35,7 +35,7 @@ const Contact = () => {
                   <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>{t.emailUs}</h3>
                   <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>{t.dropLine}</p>
                   <a href="mailto:info@sparkle.com" className="text-[#ffa500] hover:text-[#9d1449] font-semibold text-lg transition-colors">
-                    info@sparkle.com
+                    studio@sparkle-adv.net
                   </a>
                 </div>
               </div>
@@ -70,8 +70,8 @@ const Contact = () => {
                   <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>{t.visitUs}</h3>
                   <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>{t.popIn}</p>
                   <p className="text-[#ffa500] font-semibold text-lg">
-                    123 Design Street<br />
-                    Creative City, CC 12345
+                    Al Faisaliyah<br />
+                    Jiddah, Saudi Arabia
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ const Contact = () => {
 
           <div className="overflow-hidden h-full min-h-[500px]">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1841374555634!2d-73.98823492346618!3d40.75889097138558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29682.940151334908!2d39.1629761621049!3d21.571572778578215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d05a5a66134f%3A0xc1a201dc0dd43dcb!2sAl%20Faisaliyyah%2C%20Jeddah%20Saudi%20Arabia!5e0!3m2!1sen!2sin!4v1769861768559!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -89,6 +89,7 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-full"
             ></iframe>
+           {/*  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29682.940151334908!2d39.1629761621049!3d21.571572778578215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d05a5a66134f%3A0xc1a201dc0dd43dcb!2sAl%20Faisaliyyah%2C%20Jeddah%20Saudi%20Arabia!5e0!3m2!1sen!2sin!4v1769861768559!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
           </div>
         </div>
       </div>

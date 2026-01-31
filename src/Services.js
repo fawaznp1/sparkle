@@ -74,7 +74,7 @@ const Services = () => {
   ];
 
   return (
-    <section ref={ref} className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-12 sm:py-16 md:py-20 px-4 overflow-hidden transition-colors duration-300`}>
+    <section ref={ref} id="services" className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-12 sm:py-16 md:py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-[#ffa500]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-[#3b82f6]/20 rounded-full blur-3xl animate-pulse delay-1000"></div>

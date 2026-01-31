@@ -17,7 +17,7 @@ const Stickering = () => {
 
       <div className="relative z-10 max-w-full px-4">
         <div className="text-center mb-16">
-          <h2 className={`text-5xl md:text-6xl font-black mb-6 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
+          <h2 className={`text-3xl sm:text-4xl font-black mb-6 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
             {t.stickeringTitle}
           </h2>
           <div className="w-32 h-1 bg-[#be185d] mx-auto rounded-full mb-12"></div>

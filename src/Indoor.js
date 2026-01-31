@@ -27,7 +27,7 @@ const Indoor = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className={`text-5xl md:text-6xl sm:text-small font-black mb-4 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
+          <h2 className={`text-3xl sm:text-4xl font-black mb-4 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
             {t.indoorTitle}
           </h2>
           <div className="w-32 h-1 bg-[#be185d] mx-auto rounded-full"></div>

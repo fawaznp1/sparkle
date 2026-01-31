@@ -150,7 +150,7 @@ const Branding = () => {
       <div className={`relative z-10 py-12 sm:py-16 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>{t.whatWeOffer}</h2>
+            <h2 className={`text-3xl sm:text-4xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>{t.whatWeOffer}</h2>
             <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>{t.comprehensiveBrand}</p>
           </div>
 
@@ -180,7 +180,7 @@ const Branding = () => {
       <div className={`relative z-10 py-16 sm:py-20 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>{t.ourProcess}</h2>
+            <h2 className={`text-3xl sm:text-4xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>{t.ourProcess}</h2>
             <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>{t.fromConcept}</p>
           </div>
 

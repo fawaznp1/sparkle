@@ -1,20 +1,24 @@
+import { useTheme } from './ThemeContext';
+
 const ExhibitionBooth = () => {
+  const { isDark } = useTheme();
+  
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 to-slate-900 py-20 px-4 overflow-hidden">
+    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
             EXHIBITION BOOTH
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
         </div>
 
-        <div className="backdrop-blur-2xl bg-slate-800/40 border border-white/20 rounded-[20px] p-8 md:p-12">
-          <p className="text-white/90 text-lg text-center mb-12 max-w-3xl mx-auto">
+        <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12`}>
+          <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg text-center mb-12 max-w-3xl mx-auto`}>
             Stand out at your next event with our custom exhibition booths.
           </p>
 

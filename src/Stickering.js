@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTheme } from './ThemeContext';
 
 const Stickering = () => {
   const [showDetails, setShowDetails] = useState(false);
+  const { isDark } = useTheme();
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 to-slate-900 py-20 px-4 overflow-hidden">
+    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -12,7 +14,7 @@ const Stickering = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
             STICKERING SERVICE
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
@@ -21,11 +23,11 @@ const Stickering = () => {
         {/* Content Section */}
         <div className="max-w-6xl mx-auto mb-16">
           {/* Hero Card */}
-          <div className="backdrop-blur-2xl bg-slate-800/40 border border-white/20 rounded-[20px] p-8 md:p-12 mb-6">
+          <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12 mb-6`}>
             <div className="flex flex-col lg:flex-row gap-8 items-start">
               <div className="flex-1">
-                <h3 className="text-4xl font-bold text-white mb-4">As your best sales man...</h3>
-                <p className="text-white/90 text-lg leading-relaxed mb-4">
+                <h3 className={`text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>As your best sales man...</h3>
+                <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg leading-relaxed mb-4`}>
                   Advertisers are beginning to understand the importance of stickers in the field of marketing. 
                   The cost is definitely cheaper when compared to other modes of advertisements and the target 
                   audience is unbeatable.
@@ -33,12 +35,12 @@ const Stickering = () => {
                 
                 {/* Expandable Details */}
                 <div className={`transition-all duration-500 ${showDetails ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                  <div className="space-y-4 pt-4 border-t border-white/10">
-                    <p className="text-white/90 leading-relaxed">
+                  <div className={`space-y-4 pt-4 ${isDark ? 'border-t border-white/10' : 'border-t border-gray-200'}`}>
+                    <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} leading-relaxed`}>
                       The best part, you do not even have to open your mouth. What could get better than that? 
                       You can even use graphics on your stickers to increase the attention span of the target audience.
                     </p>
-                    <p className="text-white/90 leading-relaxed">
+                    <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} leading-relaxed`}>
                       So get your artistic sticker ready to make a lasting impression and make your product pop up 
                       in the minds of the people.
                     </p>
@@ -60,10 +62,10 @@ const Stickering = () => {
           {/* Sticker Types - Horizontal Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             {["Printed Stickers", "Plotter Cut Stickers", "UV Stickers", "Laminated Stickers"].map((type, i) => (
-              <div key={i} className="group backdrop-blur-2xl bg-slate-800/40 border border-white/20 hover:border-purple-400/50 rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <div key={i} className={`group backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20 hover:border-purple-400/50' : 'bg-white border-gray-200 hover:border-purple-400'} border rounded-xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl`}>
                 <div className="flex flex-col items-center text-center gap-3">
                   <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-                  <span className="text-white font-semibold text-sm">{type}</span>
+                  <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold text-sm`}>{type}</span>
                 </div>
               </div>
             ))}
@@ -73,7 +75,7 @@ const Stickering = () => {
         
          {/* Advanced Image Gallery */}
          <div className="backdrop-blur-2xl bg-gradient-to-brs from-purple-500/10 to-pink-500/10 p-8">
-           <h3 className="text-3xl font-bold text-white mb-8 text-center">Our Work Gallery</h3>
+           <h3 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-8 text-center`}>Our Work Gallery</h3>
           
           {/* Masonry Grid Layout */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -84,8 +86,8 @@ const Stickering = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-white font-bold text-2xl">Featured Work</span>
-                <p className="text-white/80 text-sm mt-1">Premium Sticker Design</p>
+                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold text-2xl`}>Featured Work</span>
+                <p className={`${isDark ? 'text-white/80' : 'text-gray-600'} text-sm mt-1`}>Premium Sticker Design</p>
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
             </div>
@@ -97,7 +99,7 @@ const Stickering = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4">
-                <span className="text-white font-semibold">UV Stickers</span>
+                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold`}>UV Stickers</span>
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
             </div>
@@ -109,7 +111,7 @@ const Stickering = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-3 left-3 right-3">
-                <span className="text-white font-semibold text-sm">Printed</span>
+                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold text-sm`}>Printed</span>
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
             </div>
@@ -121,7 +123,7 @@ const Stickering = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-3 left-3 right-3">
-                <span className="text-white font-semibold text-sm">Plotter Cut</span>
+                <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-semibold text-sm`}>Plotter Cut</span>
               </div>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-cyan-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
             </div>

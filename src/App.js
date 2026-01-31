@@ -3,6 +3,8 @@ import Branding from './Branding';
 import Contact from './Contact';
 import ExhibitionBooth from './ExhibitionBooth';
 import FleetGraphics from './FleetGraphics';
+import Footer from './Footer';
+import Header from './Header';
 import Hero from './Hero';
 import Indoor from './Indoor';
 import PremiumDisplay from './PremiumDisplay';
@@ -15,6 +17,7 @@ import Stickering from './Stickering';
 function App() {
   return (
     <div className="App">
+      <Header />
       <Hero />
       <Services />
       <Branding />
@@ -27,6 +30,7 @@ function App() {
       <PromoGifts />
       <ShieldsIds />
       <Contact />
+      <Footer />
     </div>
   );
 }

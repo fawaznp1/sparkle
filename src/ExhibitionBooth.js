@@ -4,51 +4,39 @@ const ExhibitionBooth = () => {
   const { isDark } = useTheme();
   
   return (
-    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto">
+    <section className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
-            EXHIBITION BOOTH
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            Exhibition Booth
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
-        </div>
-
-        <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12`}>
-          <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg text-center mb-12 max-w-3xl mx-auto`}>
+          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
+          <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-2xl mx-auto`}>
             Stand out at your next event with our custom exhibition booths.
           </p>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer shadow-2xl rotate-[-3deg] hover:rotate-0">
-              <div className="aspect-[3/4] flex items-center justify-center">
-                <div className="text-white/40 text-7xl">🏢</div>
-              </div>
-            </div>
-
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer shadow-2xl rotate-[2deg] hover:rotate-0 mt-8">
-              <div className="aspect-[3/4] flex items-center justify-center">
-                <div className="text-white/40 text-7xl">🏢</div>
-              </div>
-            </div>
-
-            <div className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500 cursor-pointer shadow-2xl rotate-[-2deg] hover:rotate-0">
-              <div className="aspect-[3/4] flex items-center justify-center">
-                <div className="text-white/40 text-7xl">🏢</div>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="group overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=800&fit=crop" 
+              alt="Exhibition Booth 1" 
+              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+            />
           </div>
-
-          <div className="text-center mt-12">
-            <button className="group bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
-              Get Quote
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
+          <div className="group overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&h=800&fit=crop" 
+              alt="Exhibition Booth 2" 
+              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div className="group overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&h=800&fit=crop" 
+              alt="Exhibition Booth 3" 
+              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+            />
           </div>
         </div>
       </div>

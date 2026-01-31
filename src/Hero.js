@@ -90,7 +90,7 @@ const Hero = () => {
               <span className={`text-sm font-semibold ${isDark ? 'text-[#be185d]' : 'text-[#be185d]'}`}>{t.creativeAgency}</span>
             </div>
             
-            <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <h1 className={`text-3xl sm:text-3xl lg:text-6xl font-bold mb-6 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
               {t.transformIdeas}
               <span className="block text-[#be185d]">{t.visualReality}</span>
             </h1>

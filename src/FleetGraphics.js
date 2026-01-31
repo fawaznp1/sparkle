@@ -61,17 +61,17 @@ const FleetGraphics = () => {
             ))}
           </div>
 
-          <div className="mt-8 flex justify-center gap-1 overflow-x-auto pb-2 pt-2">
+          <div className="mt-8 flex flex-wrap justify-center gap-2 max-w-md mx-auto sm:max-w-none">
             {vehicles.map((vehicle, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 w-[calc(50%-0.25rem)] sm:w-auto ${
                   index === currentIndex
-                    ? 'bg-[#be185d] text-white scale-110'
+                    ? 'bg-[#be185d] text-white scale-105 shadow-lg'
                     : isDark
                     ? 'bg-slate-800 text-gray-300 hover:bg-slate-700'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
                 }`}
               >
                 {vehicle.type}

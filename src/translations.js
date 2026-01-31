@@ -193,7 +193,7 @@ export const translations = {
     // Footer
     footerDescription: 'Premium signage and printing solutions that make your brand shine.',
     moreServices: 'More Services',
-    copyright: '© 2026 Sparkle. All rights reserved.',
+    copyright: `© ${new Date().getFullYear()} Sparkle. All rights reserved.`,
     developedBy: 'Developed by Fawaz',
     privacy: 'Privacy',
     terms: 'Terms',
@@ -394,7 +394,7 @@ export const translations = {
     // Footer
     footerDescription: 'حلول اللافتات والطباعة المتميزة التي تجعل علامتك التجارية تتألق.',
     moreServices: 'المزيد من الخدمات',
-    copyright: '© 2026 سباركل. جميع الحقوق محفوظة.',
+    copyright: `© ${new Date().getFullYear()} سباركل. جميع الحقوق محفوظة.`,
     developedBy: 'تطوير فواز',
     privacy: 'الخصوصية',
     terms: 'الشروط',

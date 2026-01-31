@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import './App.css';
 
 const Branding = lazy(() => import('./Branding'));
+const Clients = lazy(() => import('./Clients'));
 const Contact = lazy(() => import('./Contact'));
 const ExhibitionBooth = lazy(() => import('./ExhibitionBooth'));
 const FleetGraphics = lazy(() => import('./FleetGraphics'));
@@ -33,6 +34,7 @@ function App() {
         <FleetGraphics />
         <PromoGifts />
         <ShieldsIds />
+        <Clients />
         <Contact />
         <Footer />
         <ScrollToTop />

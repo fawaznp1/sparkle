@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTheme } from './ThemeContext';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
+import { useScrollAnimation } from './useScrollAnimation';
 
 const Indoor = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -10,6 +11,7 @@ const Indoor = () => {
   const { isDark } = useTheme();
   const { language } = useLanguage();
   const t = translations[language];
+  const [ref, isVisible] = useScrollAnimation();
 
   const signTypes = [
     { name: t.largeFormatSigns, images: ["https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800", "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800"] },
@@ -20,12 +22,12 @@ const Indoor = () => {
   ];
 
   return (
-    <section id="indoor" className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
+    <section ref={ref} id="indoor" className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-96 h-96 bg-[#be185d] rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className={`relative z-10 max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12">
           <h2 className={`text-3xl sm:text-4xl font-black mb-4 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
             {t.indoorTitle}

@@ -2,6 +2,7 @@ import { useTheme } from './ThemeContext';
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
+import { useScrollAnimation } from './useScrollAnimation';
 
 
 const CountUp = ({ end, duration = 2000 }) => {
@@ -46,16 +47,17 @@ const Branding = () => {
   const { isDark } = useTheme();
   const { language } = useLanguage();
   const t = translations[language];
+  const [ref, isVisible] = useScrollAnimation();
   
   return (
-    <section id="branding" className={`relative ${isDark ? 'bg-slate-900' : 'bg-gray-50'} overflow-hidden transition-colors duration-300`}>
+    <section ref={ref} id="branding" className={`relative ${isDark ? 'bg-slate-900' : 'bg-gray-50'} overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-40 right-40 w-96 h-96 bg-[#be185d] rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 left-40 w-96 h-96 bg-[#3b82f6] rounded-full blur-3xl"></div>
       </div>
 
       {/* Hero Section */}
-      <div className="relative z-10 min-h-screen flex items-center py-20">
+      <div className={`relative z-10 min-h-screen flex items-center py-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Heading with Background Image */}

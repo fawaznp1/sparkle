@@ -1,11 +1,13 @@
 import { useTheme } from './ThemeContext';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
+import { useScrollAnimation } from './useScrollAnimation';
 
 const Services = () => {
   const { isDark } = useTheme();
   const { language } = useLanguage();
   const t = translations[language];
+  const [ref, isVisible] = useScrollAnimation();
   const services = [
     {
       title: "INDOOR & OUTDOOR PRINTING",
@@ -72,13 +74,13 @@ const Services = () => {
   ];
 
   return (
-    <section className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-12 sm:py-16 md:py-20 px-4 overflow-hidden transition-colors duration-300`}>
+    <section ref={ref} className={`relative min-h-screen ${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-12 sm:py-16 md:py-20 px-4 overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-[#be185d]/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-[#3b82f6]/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className={`relative z-10 max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12 sm:mb-16">
           <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
             {t.servicesTitle}

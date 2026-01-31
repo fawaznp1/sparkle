@@ -2,12 +2,14 @@ import { useTheme } from './ThemeContext';
 import { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
+import { useScrollAnimation } from './useScrollAnimation';
 
 const FleetGraphics = () => {
   const { isDark } = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   const { language } = useLanguage();
   const t = translations[language];
+  const [ref, isVisible] = useScrollAnimation();
   
   const vehicles = [
     { type: t.largeSizeVehicles, image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=500&fit=crop' },
@@ -27,8 +29,8 @@ const FleetGraphics = () => {
   }, [vehicles.length]);
 
   return (
-    <section id="fleet" className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} id="fleet" className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
+      <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12">
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.fleetTitle}

@@ -2,12 +2,14 @@ import { useTheme } from './ThemeContext';
 import { useState } from 'react';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
+import { useScrollAnimation } from './useScrollAnimation';
 
 const ShieldsIds = () => {
   const { isDark } = useTheme();
   const [expanded, setExpanded] = useState(false);
   const { language } = useLanguage();
   const t = translations[language];
+  const [ref, isVisible] = useScrollAnimation();
   
   const items = [
     { name: t.shieldsMomentos, image: 'https://5.imimg.com/data5/SELLER/Default/2023/1/IN/KM/FV/68023836/acrylic-memento-1000x1000.jpeg' },
@@ -19,8 +21,8 @@ const ShieldsIds = () => {
   ];
 
   return (
-    <section id="shields" className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} id="shields" className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
+      <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12">
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.shieldsTitle}

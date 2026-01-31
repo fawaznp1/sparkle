@@ -2,12 +2,14 @@ import { useTheme } from './ThemeContext';
 import { useState } from 'react';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
+import { useScrollAnimation } from './useScrollAnimation';
 
 const PromoGifts = () => {
   const { isDark } = useTheme();
   const [expanded, setExpanded] = useState(false);
   const { language } = useLanguage();
   const t = translations[language];
+  const [ref, isVisible] = useScrollAnimation();
   
   const gifts = [
     { name: t.promotionalMerchandise, image: 'https://cdn11.bigcommerce.com/s-v6gbf2om44/product_images/uploaded_images/keepsake-creative-promo.jpg' },
@@ -17,8 +19,8 @@ const PromoGifts = () => {
   ];
 
   return (
-    <section id="promo" className={`${isDark ? 'bg-slate-900' : 'bg-white'} py-16 px-4 transition-colors duration-300`}>
-      <div className="max-w-7xl mx-auto">
+    <section ref={ref} id="promo" className={`${isDark ? 'bg-slate-900' : 'bg-white'} py-16 px-4 transition-colors duration-300`}>
+      <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12">
           <h2 className={`text-3xl sm:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             {t.promoTitle}

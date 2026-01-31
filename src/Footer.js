@@ -72,7 +72,7 @@ const Footer = () => {
 
         <div className={`pt-8 ${isDark ? 'border-t border-white/10' : 'border-t border-gray-200'} flex flex-col sm:flex-row justify-between items-center gap-4`}>
           <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
-            © 2024 Sparkle. All rights reserved.
+            © 2026 Sparkle. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>Privacy</a>

@@ -1,44 +1,60 @@
 import { useTheme } from './ThemeContext';
+import { useState } from 'react';
 
 const ShieldsIds = () => {
   const { isDark } = useTheme();
+  const [expanded, setExpanded] = useState(false);
   
-  return (
-    <section className={`relative min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-900 to-slate-900' : 'bg-gradient-to-br from-gray-50 to-white'} py-20 px-4 overflow-hidden transition-colors duration-300`}>
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-      </div>
+  const items = [
+    { name: 'Shields & Momentos', image: 'https://5.imimg.com/data5/SELLER/Default/2023/1/IN/KM/FV/68023836/acrylic-memento-1000x1000.jpeg' },
+    { name: 'Awards & Trophies', image: 'https://static.wixstatic.com/media/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png/v1/fill/w_600,h_600,al_c,lg_1,q_85,enc_avif,quality_auto/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png' },
+    { name: 'Name Badge', image: 'https://5.imimg.com/data5/SELLER/Default/2023/1/IN/KM/FV/68023836/acrylic-memento-1000x1000.jpeg' },
+    { name: 'ID Cards', image: 'https://static.wixstatic.com/media/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png/v1/fill/w_600,h_600,al_c,lg_1,q_85,enc_avif,quality_auto/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png' },
+    { name: 'Certificates & Merit Cards', image: 'https://5.imimg.com/data5/SELLER/Default/2023/1/IN/KM/FV/68023836/acrylic-memento-1000x1000.jpeg' },
+    { name: 'Stamps & Seals', image: 'https://3.imimg.com/data3/UE/PE/MY-4262070/manual-self-inking-stamps-1000x1000.jpg' }
+  ];
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+  const fullText = "SPARKLE offers a wide range of very attractive glass shields and Acrylic Momentos, which comprises awards and trophies that are specially designed for the clients in corporates, institutes, offices and other functions. SPARKLE can custom design these in different sizes, designs and eye-catching shapes. We also design and supply splendid range of Plastic Photo ID Cards. These cards are largely accepted among our clients for their standard features such as excellent finish, easy interpretation, and water resistance. We also design and produce high quality range of Swipe Cards, Privilege Cards, Membership Cards, Loyalty Cards etc.";
+  const shortText = fullText.slice(0, 200);
+
+  return (
+    <section className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className={`text-5xl md:text-6xl font-black mb-4 ${isDark ? 'bg-gradient-to-r from-white via-purple-200 to-pink-200' : 'bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600'} bg-clip-text text-transparent`}>
-            SHIELDS & IDS
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            Shields & IDs
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
         </div>
 
-        <div className={`backdrop-blur-2xl ${isDark ? 'bg-slate-800/40 border-white/20' : 'bg-white border-gray-200'} border rounded-[20px] p-8 md:p-12`}>
-          <p className={`${isDark ? 'text-white/90' : 'text-gray-700'} text-lg text-center mb-12 max-w-3xl mx-auto`}>
-            Professional ID cards and shields for your organization.
+        <div className="max-w-6xl mx-auto">
+          <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'} text-lg leading-relaxed text-center mb-12`}>
+            {expanded ? fullText : shortText + '...'}
+            <button 
+              onClick={() => setExpanded(!expanded)}
+              className="text-[#be185d] hover:text-[#9d1449] ml-2 font-medium"
+            >
+              {expanded ? 'Read less' : 'Read more'}
+            </button>
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="group relative backdrop-blur-lg bg-white/5 border border-white/20 rounded-xl overflow-hidden hover:scale-105 hover:rotate-3 transition-all duration-500 cursor-pointer shadow-2xl">
-                <div className="aspect-[3/4] flex items-center justify-center">
-                  <div className="text-white/40 text-6xl">🪪</div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {items.map((item, index) => (
+              <div key={index} className="relative group">
+                <div className={` p-6 flex items-center justify-center h-64 hover:scale-105 transition-transform duration-300 mb-10`}>
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 ">
+                  <span className="bg-[#be185d] text-white text-xs px-3 py-3 rounded-full block text-center">
+                    {item.name}
+                  </span>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <button className="group bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center gap-2">
-              Get Quote
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>

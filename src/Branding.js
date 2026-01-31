@@ -43,7 +43,7 @@ const Branding = () => {
   const { isDark } = useTheme();
   
   return (
-    <section className={`relative ${isDark ? 'bg-slate-900' : 'bg-gray-50'} overflow-hidden transition-colors duration-300`}>
+    <section id="branding" className={`relative ${isDark ? 'bg-slate-900' : 'bg-gray-50'} overflow-hidden transition-colors duration-300`}>
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-40 right-40 w-96 h-96 bg-[#be185d] rounded-full blur-3xl"></div>
         <div className="absolute bottom-40 left-40 w-96 h-96 bg-[#3b82f6] rounded-full blur-3xl"></div>

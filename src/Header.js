@@ -45,13 +45,13 @@ const Header = () => {
             ))}
             <button
               onClick={toggleTheme}
-              className={`w-10 h-10 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300`}
+              className={`w-10 h-10 ${isDark ? 'bg-gradient-to-br from-white/20 to-white/10 hover:from-white/30 hover:to-white/20' : 'bg-gradient-to-br from-gray-200 to-gray-100 hover:from-gray-300 hover:to-gray-200'} rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg`}
             >
               <span className="text-xl">{isDark ? '☀️' : '🌙'}</span>
             </button>
             <button
               onClick={toggleLanguage}
-              className={`px-4 py-2 ${isDark ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg font-semibold transition-all duration-300 hover:scale-105`}
+              className={`px-5 py-2.5 ${isDark ? 'bg-gradient-to-r from-[#be185d] to-[#9f1550] hover:from-[#9f1550] hover:to-[#be185d]' : 'bg-gradient-to-r from-[#be185d] to-[#9f1550] hover:from-[#9f1550] hover:to-[#be185d]'} text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#be185d]/50`}
             >
               {language === 'en' ? 'AR' : 'EN'}
             </button>
@@ -60,8 +60,14 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
             <button
+              onClick={toggleLanguage}
+              className={`px-4 py-2 ${isDark ? 'bg-gradient-to-r from-[#be185d] to-[#9f1550]' : 'bg-gradient-to-r from-[#be185d] to-[#9f1550]'} text-white rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 shadow-lg`}
+            >
+              {language === 'en' ? 'AR' : 'EN'}
+            </button>
+            <button
               onClick={toggleTheme}
-              className={`w-8 h-8 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300`}
+              className={`w-10 h-10 ${isDark ? 'bg-gradient-to-br from-white/20 to-white/10' : 'bg-gradient-to-br from-gray-200 to-gray-100'} rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg`}
             >
               <span className="text-lg">{isDark ? '☀️' : '🌙'}</span>
             </button>
@@ -89,9 +95,6 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-2 px-6 rounded-lg transition-all duration-300">
-              {t.getQuote}
-            </button>
           </nav>
         </div>
       </div>

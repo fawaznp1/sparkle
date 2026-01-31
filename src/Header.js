@@ -19,10 +19,10 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-black text-xl">S</span>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#be185d] rounded-lg flex items-center justify-center">
+              <span className="text-white font-black text-lg sm:text-xl">S</span>
             </div>
-            <span className={`text-2xl font-black bg-gradient-to-r ${isDark ? 'from-white to-purple-200' : 'from-purple-600 to-pink-600'} bg-clip-text text-transparent transition-colors duration-300`}>
+            <span className={`text-xl sm:text-2xl font-black ${isDark ? 'text-white' : 'text-[#be185d]'} transition-colors duration-300`}>
               SPARKLE
             </span>
           </div>
@@ -36,7 +36,7 @@ const Header = () => {
                 className={`${isDark ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-gray-900'} font-semibold transition-colors relative group`}
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#be185d] group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
             <button
@@ -45,20 +45,28 @@ const Header = () => {
             >
               <span className="text-xl">{isDark ? '☀️' : '🌙'}</span>
             </button>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300 hover:scale-105">
+            <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-2 px-4 sm:px-6 rounded-lg transition-all duration-300 hover:scale-105 text-sm sm:text-base">
               Get Quote
             </button>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
-          >
-            <span className={`w-6 h-0.5 ${isDark ? 'bg-white' : 'bg-gray-900'} transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`w-6 h-0.5 ${isDark ? 'bg-white' : 'bg-gray-900'} transition-all ${isOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`w-6 h-0.5 ${isDark ? 'bg-white' : 'bg-gray-900'} transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className={`w-8 h-8 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300`}
+            >
+              <span className="text-lg">{isDark ? '☀️' : '🌙'}</span>
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+            >
+              <span className={`w-6 h-0.5 ${isDark ? 'bg-white' : 'bg-gray-900'} transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`w-6 h-0.5 ${isDark ? 'bg-white' : 'bg-gray-900'} transition-all ${isOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`w-6 h-0.5 ${isDark ? 'bg-white' : 'bg-gray-900'} transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Nav */}
@@ -74,7 +82,7 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition-all duration-300">
+            <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-2 px-6 rounded-lg transition-all duration-300">
               Get Quote
             </button>
           </nav>

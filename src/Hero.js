@@ -61,9 +61,6 @@ const Hero = () => {
               <button className="bg-[#be185d] hover:bg-[#9f1550] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#be185d]/50">
                 Get Started →
               </button>
-              <button className={`backdrop-blur-sm border ${isDark ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-900 hover:bg-gray-100'} font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 hover:scale-105`}>
-                View Portfolio
-              </button>
             </div>
             
             <div className="flex items-center gap-4 sm:gap-8">

@@ -30,7 +30,7 @@ function App() {
       <PromoGifts />
       <ShieldsIds />
       <Contact />
-      <Footer />
+     {/*  <Footer /> */}
     </div>
   );
 }

@@ -1,7 +1,11 @@
 import { useTheme } from './ThemeContext';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const Footer = () => {
   const { isDark } = useTheme();
+  const { language } = useLanguage();
+  const t = translations[language];
 
   return (
     <footer className={`relative ${isDark ? 'bg-slate-900' : 'bg-gray-50'} transition-colors duration-300`}>
@@ -15,7 +19,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className={`text-2xl font-black ${isDark ? 'text-white' : 'text-[#be185d]'}`}>SPARKLE</h3>
             <p className={`${isDark ? 'text-white/70' : 'text-gray-600'} text-sm leading-relaxed`}>
-              Premium signage and printing solutions that make your brand shine.
+              {t.footerDescription}
             </p>
             <div className="flex gap-3">
               {['F', 'T', 'I', 'L'].map((letter, i) => (
@@ -27,7 +31,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold mb-4`}>Services</h4>
+            <h4 className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold mb-4`}>{t.services}</h4>
             <ul className="space-y-2">
               {[
                 { name: 'Branding', id: 'branding' },
@@ -47,7 +51,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold mb-4`}>More Services</h4>
+            <h4 className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold mb-4`}>{t.moreServices}</h4>
             <ul className="space-y-2">
               {[
                 { name: 'Safety Signs', id: 'safety' },
@@ -66,7 +70,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold mb-4`}>Contact</h4>
+            <h4 className={`${isDark ? 'text-white' : 'text-gray-900'} font-bold mb-4`}>{t.contact}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="mailto:info@sparkle.com" className={`${isDark ? 'text-white/60 hover:text-[#be185d]' : 'text-gray-600 hover:text-[#be185d]'} text-sm transition-colors flex items-center gap-2`}>
@@ -100,15 +104,15 @@ const Footer = () => {
 
         <div className={`pt-8 ${isDark ? 'border-t border-white/10' : 'border-t border-gray-200'} flex flex-col sm:flex-row justify-between items-center gap-4`}>
           <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
-            © 2026 Sparkle. All rights reserved.
+            {t.copyright}
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>Privacy</a>
-            <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>Terms</a>
-            <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>Cookies</a>
+            <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>{t.privacy}</a>
+            <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>{t.terms}</a>
+            <a href="#" className={`${isDark ? 'text-white/50 hover:text-white' : 'text-gray-500 hover:text-[#be185d]'} transition-colors`}>{t.cookies}</a>
           </div>
           <p className={`${isDark ? 'text-white/50' : 'text-gray-500'} text-sm`}>
-            Developed by Fawaz
+            {t.developedBy}
           </p>
         </div>
       </div>

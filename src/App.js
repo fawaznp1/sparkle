@@ -1,38 +1,42 @@
+import { lazy, Suspense } from 'react';
 import './App.css';
-import Branding from './Branding';
-import Contact from './Contact';
-import ExhibitionBooth from './ExhibitionBooth';
-import FleetGraphics from './FleetGraphics';
-import Footer from './Footer';
-import Header from './Header';
-import Hero from './Hero';
-import Indoor from './Indoor';
-import PremiumDisplay from './PremiumDisplay';
-import PromoGifts from './PromoGifts';
-import SafetySigns from './SafetySigns';
-import Services from './Services';
-import ShieldsIds from './ShieldsIds';
-import Stickering from './Stickering';
-import ScrollToTop from './ScrollToTop';
+
+const Branding = lazy(() => import('./Branding'));
+const Contact = lazy(() => import('./Contact'));
+const ExhibitionBooth = lazy(() => import('./ExhibitionBooth'));
+const FleetGraphics = lazy(() => import('./FleetGraphics'));
+const Footer = lazy(() => import('./Footer'));
+const Header = lazy(() => import('./Header'));
+const Hero = lazy(() => import('./Hero'));
+const Indoor = lazy(() => import('./Indoor'));
+const PremiumDisplay = lazy(() => import('./PremiumDisplay'));
+const PromoGifts = lazy(() => import('./PromoGifts'));
+const SafetySigns = lazy(() => import('./SafetySigns'));
+const Services = lazy(() => import('./Services'));
+const ShieldsIds = lazy(() => import('./ShieldsIds'));
+const Stickering = lazy(() => import('./Stickering'));
+const ScrollToTop = lazy(() => import('./ScrollToTop'));
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Hero />
-      <Services />
-      <Branding />
-      <Stickering />
-      <Indoor />
-      <ExhibitionBooth />
-      <PremiumDisplay />
-      <SafetySigns />
-      <FleetGraphics />
-      <PromoGifts />
-      <ShieldsIds />
-      <Contact />
-      <Footer />
-      <ScrollToTop />
+      <Suspense fallback={<div className='text-center m-auto py-10'>Loading...</div>}>
+        <Header />
+        <Hero />
+        <Services />
+        <Branding />
+        <Stickering />
+        <Indoor />
+        <ExhibitionBooth />
+        <PremiumDisplay />
+        <SafetySigns />
+        <FleetGraphics />
+        <PromoGifts />
+        <ShieldsIds />
+        <Contact />
+        <Footer />
+        <ScrollToTop />
+      </Suspense>
     </div>
   );
 }

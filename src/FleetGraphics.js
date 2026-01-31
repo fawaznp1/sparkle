@@ -1,18 +1,22 @@
 import { useTheme } from './ThemeContext';
 import { useState, useEffect } from 'react';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const FleetGraphics = () => {
   const { isDark } = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { language } = useLanguage();
+  const t = translations[language];
   
   const vehicles = [
-    { type: 'Large Size Vehicles', image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=500&fit=crop' },
-    { type: 'Medium Size Vehicles', image: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=800&h=500&fit=crop' },
-    { type: 'Small Size Vehicles', image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=500&fit=crop' },
-    { type: 'Complete Wrapping', image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=500&fit=crop' },
-    { type: 'Plotter Cut Stickering', image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop' },
-    { type: 'UV Printed Stickering', image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop' },
-    { type: 'Laminated Stickering', image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop' }
+    { type: t.largeSizeVehicles, image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=500&fit=crop' },
+    { type: t.mediumSizeVehicles, image: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=800&h=500&fit=crop' },
+    { type: t.smallSizeVehicles, image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=500&fit=crop' },
+    { type: t.completeWrapping, image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=500&fit=crop' },
+    { type: t.plotterCutStickering, image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop' },
+    { type: t.uvPrintedStickering, image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop' },
+    { type: t.laminatedStickering, image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop' }
   ];
 
   useEffect(() => {
@@ -27,11 +31,11 @@ const FleetGraphics = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Fleet Graphics
+            {t.fleetTitle}
           </h2>
           <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-3xl mx-auto`}>
-            These billboards on wheels are high impact mobile marketing techniques, proven to increase brand awareness.
+            {t.fleetDesc}
           </p>
         </div>
 

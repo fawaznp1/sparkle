@@ -1,19 +1,22 @@
 import { useTheme } from './ThemeContext';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const Contact = () => {
   const { isDark } = useTheme();
+  const { language } = useLanguage();
+  const t = translations[language];
   
   return (
-    <section className={`${isDark ? 'bg-slate-900' : 'bg-white'} py-6 px-4 transition-colors duration-300`}>
+    <section id="contact" className={`${isDark ? 'bg-slate-900' : 'bg-white'} py-16 px-4 transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Like What We Have To Say?
+            {t.contactTitle}
           </h2>
           <div className="w-24 h-1 bg-[#be185d] mx-auto mb-6"></div>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-700'} text-lg max-w-3xl mx-auto`}>
-            Whatever you're looking to achieve, feel free to call our studio for an informal chat, 
-            drop us an email or pop in for a cup of tea and some fresh ideas - we'd love to hear from you....
+            {t.contactDesc}
           </p>
         </div>
 
@@ -27,8 +30,8 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>Email Us</h3>
-                  <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>Drop us a line anytime</p>
+                  <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>{t.emailUs}</h3>
+                  <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>{t.dropLine}</p>
                   <a href="mailto:info@sparkle.com" className="text-[#be185d] hover:text-[#9d1449] font-semibold text-lg transition-colors">
                     info@sparkle.com
                   </a>
@@ -44,8 +47,8 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>Call Us</h3>
-                  <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>Mon-Fri 9am-6pm</p>
+                  <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>{t.callUs}</h3>
+                  <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>{t.monFri}</p>
                   <a href="tel:+1234567890" className="text-[#be185d] hover:text-[#9d1449] font-semibold text-lg transition-colors">
                     +123 456 7890
                   </a>
@@ -62,8 +65,8 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>Visit Us</h3>
-                  <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>Pop in for a cup of tea</p>
+                  <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>{t.visitUs}</h3>
+                  <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>{t.popIn}</p>
                   <p className="text-[#be185d] font-semibold text-lg">
                     123 Design Street<br />
                     Creative City, CC 12345

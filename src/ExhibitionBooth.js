@@ -1,18 +1,22 @@
 import { useTheme } from './ThemeContext';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const ExhibitionBooth = () => {
   const { isDark } = useTheme();
+  const { language } = useLanguage();
+  const t = translations[language];
   
   return (
     <section id="exhibition" className={`${isDark ? 'bg-slate-900' : 'bg-gray-50'} py-16 px-4 transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Exhibition Booth
+            {t.exhibitionTitle}
           </h2>
           <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-2xl mx-auto`}>
-            Stand out at your next event with our custom exhibition booths.
+            {t.exhibitionDesc}
           </p>
         </div>
 

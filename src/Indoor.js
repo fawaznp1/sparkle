@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import { useTheme } from './ThemeContext';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const Indoor = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedType, setSelectedType] = useState(null);
   const { isDark } = useTheme();
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const signTypes = [
-    { name: "Large Format Signs", images: ["https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"] },
-    { name: "Backlit Signs", images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"] },
-    { name: "Acrylic Signs", images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800"] },
-    { name: "3D Signs", images: ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"] },
-    { name: "Embossed Signs", images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"] }
+    { name: t.largeFormatSigns, images: ["https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"] },
+    { name: t.backlitSigns, images: ["https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"] },
+    { name: t.acrylicSigns, images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800"] },
+    { name: t.threeDSigns, images: ["https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800", "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"] },
+    { name: t.embossedSigns, images: ["https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"] }
   ];
 
   return (
@@ -24,7 +28,7 @@ const Indoor = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className={`text-5xl md:text-6xl sm:text-small font-black mb-4 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
-            INDOOR & OUTDOOR SIGNS
+            {t.indoorTitle}
           </h2>
           <div className="w-32 h-1 bg-[#be185d] mx-auto rounded-full"></div>
         </div>
@@ -35,7 +39,7 @@ const Indoor = () => {
             {/* Left: Content */}
             <div className="space-y-6">
               <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} border rounded-2xl p-8`}>
-                <h3 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6`}>Our Sign Solutions</h3>
+                <h3 className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6`}>{t.ourSignSolutions}</h3>
                 <div className="space-y-3">
                   {signTypes.map((type, i) => (
                     <div key={i} className={`${isDark ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-gray-100 hover:bg-gray-200 border-gray-200'} border rounded-xl p-4 transition-all duration-300 hover:translate-x-2`}>
@@ -48,7 +52,7 @@ const Indoor = () => {
                           onClick={() => { setSelectedType(type); setModalOpen(true); }}
                           className="text-[#be185d] hover:text-[#9d1449] text-sm font-medium underline transition-colors"
                         >
-                          View
+                          {t.view}
                         </button>
                       </div>
                     </div>
@@ -58,27 +62,25 @@ const Indoor = () => {
 
               <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} border rounded-2xl p-8`}>
                 <p className={`${isDark ? 'text-white/80' : 'text-gray-700'} text-lg leading-relaxed`}>
-                  Transform your space with our premium indoor and outdoor signage solutions. 
-                  From eye-catching backlit displays to elegant acrylic signs, we deliver quality that stands out.{' '}
+                  {t.indoorDesc1}{' '}
                   {!showDetails && (
                     <button
                       onClick={() => setShowDetails(true)}
                       className={`${isDark ? 'text-[#be185d] hover:text-[#9d1449]' : 'text-[#be185d] hover:text-[#9d1449]'} font-medium underline transition-colors`}
                     >
-                      See more
+                      {t.seeMore}
                     </button>
                   )}
                 </p>
                 
                 <div className={`transition-all duration-500 ${showDetails ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                   <p className={`${isDark ? 'text-white/80' : 'text-gray-700'} text-lg leading-relaxed`}>
-                    Our signs are crafted with precision and designed to make a lasting impression. 
-                    Whether you need bold 3D lettering or sophisticated embossed designs, we have the expertise to bring your vision to life.{' '}
+                    {t.indoorDesc2}{' '}
                     <button
                       onClick={() => setShowDetails(false)}
                       className={`${isDark ? 'text-[#be185d] hover:text-[#9d1449]' : 'text-[#be185d] hover:text-[#9d1449]'} font-medium underline transition-colors`}
                     >
-                      Show less
+                      {t.showLess}
                     </button>
                   </p>
                 </div>
@@ -87,7 +89,7 @@ const Indoor = () => {
 
             {/* Right: Collage Gallery */}
             <div className={`${isDark ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} border rounded-2xl p-6`}>
-              <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6 text-center`}>Our Work</h3>
+              <h3 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6 text-center`}>{t.ourWork}</h3>
               
               {/* Collage Layout */}
               <div className="relative h-[600px]">
@@ -143,7 +145,7 @@ const Indoor = () => {
               {/* CTA Button */}
               <div className="text-center mt-6">
                 <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 hover:scale-105 shadow-xl inline-flex items-center gap-2">
-                  Get Your Signs Now
+                  {t.getSignsNow}
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>

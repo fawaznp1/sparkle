@@ -1,5 +1,8 @@
 import { useTheme } from './ThemeContext';
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
+
 
 const CountUp = ({ end, duration = 2000 }) => {
   const [count, setCount] = useState(0);
@@ -41,6 +44,8 @@ const CountUp = ({ end, duration = 2000 }) => {
 
 const Branding = () => {
   const { isDark } = useTheme();
+  const { language } = useLanguage();
+  const t = translations[language];
   
   return (
     <section id="branding" className={`relative ${isDark ? 'bg-slate-900' : 'bg-gray-50'} overflow-hidden transition-colors duration-300`}>
@@ -63,8 +68,8 @@ const Branding = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
                 <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[0.9] mb-4">
-                  CORPORATE<br/>
-                  <span className="text-[#be185d]">BRANDING</span>
+                  {t.brandingTitle.split(' ')[0]}<br/>
+                  <span className="text-[#be185d]">{t.brandingTitle.split(' ')[1]}</span>
                 </h1>
                 <div className="flex items-center gap-2 mt-6">
                   <div className="w-2 h-2 bg-[#be185d] rounded-full"></div>
@@ -77,25 +82,19 @@ const Branding = () => {
             <div className="space-y-8">
               <div>
                 <h2 className={`text-3xl sm:text-4xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-6`}>
-                  Distinctive creative
+                  {t.brandingSubtitle}
                 </h2>
                 <div className={`space-y-4 text-base sm:text-lg ${isDark ? 'text-white/70' : 'text-gray-600'} leading-relaxed`}>
-                  <p>
-                    Our team assist corporate identity design issues by understanding the importance of the right brand imaging and by understanding the complex world of todays business.
-                  </p>
-                  <p>
-                    Listening to the needs of our customers, giving them and their projects maximum attention including a well defined brand strategy and creativity at the same time, form the right combination for brand success.
-                  </p>
-                  <p>
-                    By following each project with disciplines like flexibility, adaptability and rapidity - from the initial sketches to the hand-over to the client we ensure design consistency.
-                  </p>
+                  <p>{t.brandingDesc1}</p>
+                  <p>{t.brandingDesc2}</p>
+                  <p>{t.brandingDesc3}</p>
                 </div>
               </div>
 
               <div className={`p-6 ${isDark ? 'bg-white/5 border-white/10' : 'bg-gray-100 border-gray-200'} border rounded-2xl`}>
-                <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-3`}>SPARKLE offers</h3>
+                <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-3`}>{t.sparkleOffers}</h3>
                 <p className={`${isDark ? 'text-white/70' : 'text-gray-600'} leading-relaxed`}>
-                  design and brand solutions for clients: large or small. Established or new start-ups. Regionally, nationally and internationally, anywhere in the world.
+                  {t.sparkleOffersDesc}
                 </p>
               </div>
             </div>
@@ -116,7 +115,7 @@ const Branding = () => {
                 <div className="text-4xl md:text-5xl font-black text-[#be185d] mb-2">
                   <CountUp end={500} />
                 </div>
-                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Projects</div>
+                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>{t.projects}</div>
               </div>
             </div>
             <div className="relative text-center p-8 rounded-2xl overflow-hidden">
@@ -127,7 +126,7 @@ const Branding = () => {
                 <div className="text-4xl md:text-5xl font-black text-[#be185d] mb-2">
                   <CountUp end={50} />
                 </div>
-                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Clients</div>
+                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>{t.clients}</div>
               </div>
             </div>
             <div className="relative text-center p-8 rounded-2xl overflow-hidden">
@@ -138,7 +137,7 @@ const Branding = () => {
                 <div className="text-4xl md:text-5xl font-black text-[#be185d] mb-2">
                   <CountUp end={5} />
                 </div>
-                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>Years</div>
+                <div className={`text-sm ${isDark ? 'text-white/50' : 'text-gray-500'} uppercase tracking-wide`}>{t.years}</div>
               </div>
             </div>
           </div>
@@ -151,16 +150,16 @@ const Branding = () => {
       <div className={`relative z-10 py-12 sm:py-16 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>What We Offer</h2>
-            <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>Comprehensive brand solutions</p>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>{t.whatWeOffer}</h2>
+            <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>{t.comprehensiveBrand}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Large Corporations", desc: "Enterprise-level branding" },
-              { title: "Growing Businesses", desc: "Scalable brand systems" },
-              { title: "Established Brands", desc: "Rebranding & evolution" },
-              { title: "New Startups", desc: "Brand from scratch" }
+              { title: t.largeCorp, desc: t.largeCorpDesc },
+              { title: t.growingBusiness, desc: t.growingBusinessDesc },
+              { title: t.establishedBrands, desc: t.establishedBrandsDesc },
+              { title: t.newStartups, desc: t.newStartupsDesc }
             ].map((item, index) => (
               <div key={index} className={`group relative ${isDark ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-white hover:shadow-2xl border-gray-200'} border rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2`}>
                 <div className="absolute top-0 left-0 w-1 h-full bg-[#be185d] rounded-l-2xl transition-all duration-300"></div>
@@ -181,8 +180,8 @@ const Branding = () => {
       <div className={`relative z-10 py-16 sm:py-20 ${isDark ? 'border-t border-white/5' : 'border-t border-gray-200'}`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Our Process</h2>
-            <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>From concept to completion</p>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>{t.ourProcess}</h2>
+            <p className={`text-lg sm:text-xl ${isDark ? 'text-white/50' : 'text-gray-600'}`}>{t.fromConcept}</p>
           </div>
 
           <div className="relative">
@@ -191,10 +190,10 @@ const Branding = () => {
             
             <div className="space-y-12">
               {[
-                { num: "01", title: "Discovery", desc: "Understanding your brand vision and objectives" },
-                { num: "02", title: "Strategy", desc: "Developing brand strategy framework" },
-                { num: "03", title: "Design", desc: "Creating visual identity system" },
-                { num: "04", title: "Launch", desc: "Implementing complete brand system" }
+                { num: "01", title: t.discovery, desc: t.discoveryDesc },
+                { num: "02", title: t.strategy, desc: t.strategyDesc },
+                { num: "03", title: t.design, desc: t.designDesc },
+                { num: "04", title: t.launch, desc: t.launchDesc }
               ].map((item, index) => (
                 <div key={index} className="relative flex items-start gap-8">
                   {/* Timeline Dot */}

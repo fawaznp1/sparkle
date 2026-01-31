@@ -1,16 +1,20 @@
 import { useState } from 'react';
 import { useTheme } from './ThemeContext';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language];
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Branding', href: '#branding' },
-    { name: 'Stickering', href: '#stickering' },
-    { name: 'Signs', href: '#signs' },
-    { name: 'Contact', href: '#contact' }
+    { name: t.services, href: '#services' },
+    { name: t.branding, href: '#branding' },
+    { name: t.stickering, href: '#stickering' },
+    { name: t.signs, href: '#signs' },
+    { name: t.contact, href: '#contact' }
   ];
 
   return (
@@ -41,12 +45,15 @@ const Header = () => {
             ))}
             <button
               onClick={toggleTheme}
-              className={`w-10 h-10 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300 mr-4`}
+              className={`w-10 h-10 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-lg flex items-center justify-center hover:scale-110 transition-all duration-300`}
             >
               <span className="text-xl">{isDark ? '☀️' : '🌙'}</span>
             </button>
-            <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-2 px-4 sm:px-6 rounded-lg transition-all duration-300 hover:scale-105 text-sm sm:text-base">
-              Get Quote
+            <button
+              onClick={toggleLanguage}
+              className={`px-4 py-2 ${isDark ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg font-semibold transition-all duration-300 hover:scale-105`}
+            >
+              {language === 'en' ? 'AR' : 'EN'}
             </button>
           </nav>
 
@@ -83,7 +90,7 @@ const Header = () => {
               </a>
             ))}
             <button className="bg-[#be185d] hover:bg-[#9d1449] text-white font-bold py-2 px-6 rounded-lg transition-all duration-300">
-              Get Quote
+              {t.getQuote}
             </button>
           </nav>
         </div>

@@ -1,7 +1,11 @@
 import { useTheme } from './ThemeContext';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const Services = () => {
   const { isDark } = useTheme();
+  const { language } = useLanguage();
+  const t = translations[language];
   const services = [
     {
       title: "INDOOR & OUTDOOR PRINTING",
@@ -11,15 +15,15 @@ const Services = () => {
         </svg>
       ),
       items: [
-        { name: "Interior Wall Graphics", img: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=100" },
-        { name: "Acrylic & Forex Signs", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100" },
-        { name: "Back-Lit Signs", img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=100" },
-        { name: "Sandwich Boards", img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100" },
-        { name: "Roll Ups & Pop ups", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=100" },
-        { name: "Exhibition Booth", img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=100" },
-        { name: "Display Stand", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=100" },
-        { name: "Premium Podium", img: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=100" },
-        { name: "Gondolas", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=100" }
+        { name: t.interiorWallGraphics, img: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=100" },
+        { name: t.acrylicForexSigns, img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100" },
+        { name: t.backlitSigns, img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=100" },
+        { name: t.sandwichBoards, img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100" },
+        { name: t.rollUpsPopups, img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=100" },
+        { name: t.exhibitionBooth, img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=100" },
+        { name: t.displayStand, img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=100" },
+        { name: t.premiumPodium, img: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=100" },
+        { name: t.gondolas, img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=100" }
       ],
       color: "#be185d"
     },
@@ -31,16 +35,16 @@ const Services = () => {
         </svg>
       ),
       items: [
-        { name: "Brochure & Booklets", img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=100" },
-        { name: "Catalogue & Folder", img: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=100" },
-        { name: "Flyers, Leaflets & Posters", img: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=100" },
-        { name: "Packaging Boxes", img: "https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=100" },
-        { name: "Shopper Bags", img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=100" },
-        { name: "Business Stationary", img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=100" },
-        { name: "Calendars & Desk Planners", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=100" },
-        { name: "Menus", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100" },
-        { name: "Labels/Stickers", img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100" },
-        { name: "Tent Cards & Tags", img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=100" }
+        { name: t.brochureBooklets, img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=100" },
+        { name: t.catalogueFolder, img: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=100" },
+        { name: t.flyersLeafletsPosters, img: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=100" },
+        { name: t.packagingBoxes, img: "https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=100" },
+        { name: t.shopperBags, img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=100" },
+        { name: t.businessStationary, img: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=100" },
+        { name: t.calendarsDeskPlanners, img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=100" },
+        { name: t.menus, img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=100" },
+        { name: t.labelsStickers, img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=100" },
+        { name: t.tentCardsTags, img: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=100" }
       ],
       color: "#3b82f6"
     },
@@ -52,16 +56,16 @@ const Services = () => {
         </svg>
       ),
       items: [
-        { name: "Branding & Designing", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=100" },
-        { name: "Stickering Service", img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=100" },
-        { name: "3D Signs", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100" },
-        { name: "Indoor & Outdoor Signs", img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=100" },
-        { name: "Safety Signs", img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=100" },
-        { name: "Shields & IDs", img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=100" },
-        { name: "Promo Gifts", img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=100" },
-        { name: "Fleet Graphics", img: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=100" },
-        { name: "Premium Notes & Diaries", img: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=100" },
-        { name: "Lanyards & ID Cards", img: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=100" }
+        { name: t.brandingDesigning, img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=100" },
+        { name: t.stickeringService, img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=100" },
+        { name: t.threeDSignsService, img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=100" },
+        { name: t.indoorOutdoorSigns, img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=100" },
+        { name: t.safetySigns, img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=100" },
+        { name: t.shieldsIDs, img: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=100" },
+        { name: t.promoGifts, img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=100" },
+        { name: t.fleetGraphics, img: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=100" },
+        { name: t.premiumNotesDiaries, img: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=100" },
+        { name: t.lanyardsIDCards, img: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=100" }
       ],
       color: "#be185d"
     }
@@ -77,11 +81,11 @@ const Services = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 ${isDark ? 'text-white' : 'text-[#be185d]'}`}>
-            OUR SERVICES
+            {t.servicesTitle}
           </h2>
           <div className="w-24 sm:w-32 h-1 bg-[#be185d] mx-auto rounded-full mb-6 sm:mb-8"></div>
           <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-white/80' : 'text-gray-700'} max-w-3xl mx-auto px-4`}>
-            Comprehensive printing and design solutions tailored for your business needs
+            {t.servicesDesc}
           </p>
         </div>
 

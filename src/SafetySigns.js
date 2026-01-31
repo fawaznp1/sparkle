@@ -1,15 +1,19 @@
 import { useTheme } from './ThemeContext';
+import { useLanguage } from './LanguageContext';
+import { translations } from './translations';
 
 const SafetySigns = () => {
   const { isDark } = useTheme();
+  const { language } = useLanguage();
+  const t = translations[language];
   
   const signs = [
-    { name: 'Acrylic Safety Signs', image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=600&h=600&fit=crop' },
-    { name: 'Hanging Safety Signs', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=600&fit=crop' },
-    { name: 'Standing Safety Signs', image: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=600&h=600&fit=crop' },
-    { name: 'Sticker Safety Signs', image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&h=600&fit=crop' },
-    { name: 'Reflective Signs', image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=600&h=600&fit=crop' },
-    { name: 'Reflective Stickers', image: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=600&fit=crop' }
+    { name: t.acrylicSafetySigns, image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=600&h=600&fit=crop' },
+    { name: t.hangingSafetySigns, image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=600&fit=crop' },
+    { name: t.standingSafetySigns, image: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=600&h=600&fit=crop' },
+    { name: t.stickerSafetySigns, image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&h=600&fit=crop' },
+    { name: t.reflectiveSigns, image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=600&h=600&fit=crop' },
+    { name: t.reflectiveStickers, image: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=600&fit=crop' }
   ];
 
   return (
@@ -17,11 +21,11 @@ const SafetySigns = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Safety Signs
+            {t.safetyTitle}
           </h2>
           <div className="w-24 h-1 bg-[#be185d] mx-auto"></div>
           <p className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-lg mt-6 max-w-3xl mx-auto`}>
-            All our health and safety signs are offered in a variety of sizes to full legal requirements and ensure they are visible in any environment and at night via our glow in the dark range.
+            {t.safetyDesc}
           </p>
         </div>
 

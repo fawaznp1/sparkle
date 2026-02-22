@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
+import ImageZoomOut from './ImageZoomOut';
 
 const PromoGifts = () => {
   const { isDark } = useTheme();
@@ -31,14 +32,14 @@ const PromoGifts = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div className="grid grid-cols-2 gap-4">
             {gifts.map((gift, index) => (
-              <div key={index} className="relative group">
-                <div className={` p-6 flex items-center justify-center h-64 hover:scale-105 transition-transform duration-300`}>
+              <div key={index} className="relative">
+                <ImageZoomOut>
                   <img 
                     src={gift.image} 
                     alt={gift.name} 
-                    className="max-w-full max-h-full object-contain"
+                    className="w-full h-64 object-contain p-6"
                   />
-                </div>
+                </ImageZoomOut>
                 <div className="absolute top-3 left-3">
                   <span className="bg-[#ffa500] text-white text-xs px-3 py-1 rounded-full">
                     {gift.name}

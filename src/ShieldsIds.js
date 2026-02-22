@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
+import ImageZoomOut from './ImageZoomOut';
 
 const ShieldsIds = () => {
   const { isDark } = useTheme();
@@ -43,14 +44,14 @@ const ShieldsIds = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {items.map((item, index) => (
-              <div key={index} className="relative group">
-                <div className={` p-6 flex items-center justify-center h-64 hover:scale-105 transition-transform duration-300 mb-10`}>
+              <div key={index} className="relative mb-10">
+                <ImageZoomOut>
                   <img 
                     src={item.image} 
                     alt={item.name} 
-                    className="max-w-full max-h-full object-contain"
+                    className="w-full h-64 object-contain p-6"
                   />
-                </div>
+                </ImageZoomOut>
                 <div className="absolute bottom-3 left-3 right-3 ">
                   <span className="bg-[#ffa500] text-white text-xs px-3 py-3 rounded-full block text-center">
                     {item.name}

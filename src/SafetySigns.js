@@ -2,6 +2,7 @@ import { useTheme } from './ThemeContext';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
+import ImageZoomOut from './ImageZoomOut';
 
 const SafetySigns = () => {
   const { isDark } = useTheme();
@@ -33,12 +34,14 @@ const SafetySigns = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {signs.map((sign, index) => (
-            <div key={index} className="relative group overflow-hidden">
-              <img 
-                src={sign.image} 
-                alt={sign.name} 
-                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-              />
+            <div key={index} className="relative">
+              <ImageZoomOut>
+                <img 
+                  src={sign.image} 
+                  alt={sign.name} 
+                  className="w-full h-64 object-cover"
+                />
+              </ImageZoomOut>
               <div className="absolute top-3 right-3">
                 <span className="bg-[#ffa500] text-white text-xs px-3 py-1 rounded-full">
                   {sign.name}

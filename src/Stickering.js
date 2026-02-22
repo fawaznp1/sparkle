@@ -3,6 +3,7 @@ import { useTheme } from './ThemeContext';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
+import ImageZoomOut from './ImageZoomOut';
 
 const Stickering = () => {
   const [showDetails, setShowDetails] = useState(false);
@@ -31,8 +32,10 @@ const Stickering = () => {
             { img: "https://orchiddigitals.com/wp-content/uploads/2015/05/custom-shape-cut-vinyl-stickers.jpg.webp", label: t.printedStickers },
             { img: "https://www.shutterstock.com/image-photo/plotter-cutting-vinyl-film-productionclean-600nw-2685062337.jpg", label: t.plotterCutStickers }
           ].map((item, i) => (
-            <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
-              <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div key={i} className="relative h-64 md:h-96">
+              <ImageZoomOut>
+                <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
+              </ImageZoomOut>
               <div className="absolute top-3 right-3 bg-[#ffa500] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
                 {item.label}
               </div>
@@ -74,8 +77,10 @@ const Stickering = () => {
             { img: "https://5.imimg.com/data5/SELLER/Default/2024/3/397061568/VB/OA/PC/7832232/uv-dtf-printing-sticker.jpeg", label: t.uvStickers },
             { img: "https://5.imimg.com/data5/SELLER/Default/2024/10/458116005/JC/SV/WP/2918998/laminated-stickers.png", label: t.laminatedStickers }
           ].map((item, i) => (
-            <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
-              <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <div key={i} className="relative h-64 md:h-96">
+              <ImageZoomOut>
+                <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
+              </ImageZoomOut>
               <div className="absolute top-3 right-3 bg-[#ffa500] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
                 {item.label}
               </div>

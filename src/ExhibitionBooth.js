@@ -2,6 +2,7 @@ import { useTheme } from './ThemeContext';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
+import ImageZoomOut from './ImageZoomOut';
 
 const ExhibitionBooth = () => {
   const { isDark } = useTheme();
@@ -23,27 +24,27 @@ const ExhibitionBooth = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <div className="group overflow-hidden">
+          <ImageZoomOut>
             <img 
               src="https://www.gskcreative.com.sg/wp-content/uploads/2019/06/ST-Engineering_01.jpg" 
               alt="Exhibition Booth 1" 
-              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-80 object-cover"
             />
-          </div>
-          <div className="group overflow-hidden">
+          </ImageZoomOut>
+          <ImageZoomOut>
             <img 
               src="https://cdn1.designhill.com/uploads/personal_designs/ff74b3ea151fb4fce9ae518a7f13d885-abd93e76d30a74802bddb1d94108f74215779019120643.jpg?ver=2.12.85" 
               alt="Exhibition Booth 2" 
-              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-80 object-cover"
             />
-          </div>
-          <div className="group overflow-hidden">
+          </ImageZoomOut>
+          <ImageZoomOut>
             <img 
               src="https://hazken.com/assets/images/bg/exhibition-booth-stands.jpg" 
               alt="Exhibition Booth 3" 
-              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-80 object-cover"
             />
-          </div>
+          </ImageZoomOut>
         </div>
       </div>
     </section>

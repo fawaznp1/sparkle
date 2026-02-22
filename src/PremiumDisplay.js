@@ -2,6 +2,7 @@ import { useTheme } from './ThemeContext';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
+import ImageZoomOut from './ImageZoomOut';
 
 const PremiumDisplay = () => {
   const { isDark } = useTheme();
@@ -23,27 +24,27 @@ const PremiumDisplay = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <div className="group overflow-hidden">
+          <ImageZoomOut>
             <img 
               src="https://s.alicdn.com/@sc04/kf/H4ac17a0d45f2414bbad49d1afb438fdaQ/Customizable-Supermarket-Retail-Display-Stand-PVC-Foam-Board-Display-Rack-PVC-Foam-Display-Stand.jpg_300x300.jpg" 
               alt="Premium Display 1" 
-              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-80 object-cover"
             />
-          </div>
-          <div className="group overflow-hidden">
+          </ImageZoomOut>
+          <ImageZoomOut>
             <img 
               src="https://s.alicdn.com/@sc04/kf/He172e87d3b1b4945bdbbd0de98672ee51/Custom-Portable-Foldable-Cardboard-Display-Stand-Supermarket-Merchandise-Products-Paper-Display-Rack-Beverage-Chocolate-Store.jpg_300x300.jpg" 
               alt="Premium Display 2" 
-              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-80 object-cover"
             />
-          </div>
-          <div className="group overflow-hidden">
+          </ImageZoomOut>
+          <ImageZoomOut>
             <img 
               src="https://s.alicdn.com/@sc04/kf/H8f55b69053624f269463f5d823e828775/Custom-Acrylic-Phone-Accessary-Showcase-Back-Led-Light-PMMA-Charger-Display-Stand-4-tier-Cables-Display-Rack-with-Sticker.jpg_300x300.jpg" 
               alt="Premium Display 3" 
-              className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-80 object-cover"
             />
-          </div>
+          </ImageZoomOut>
         </div>
       </div>
     </section>

@@ -28,8 +28,8 @@ const Stickering = () => {
         {/* Row 1 - Shop Images with Chips */}
         <div className="grid grid-cols-2 gap-4 mb-16 max-w-7xl mx-auto">
           {[
-            { img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800", label: t.printedStickers },
-            { img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800", label: t.plotterCutStickers }
+            { img: "https://orchiddigitals.com/wp-content/uploads/2015/05/custom-shape-cut-vinyl-stickers.jpg.webp", label: t.printedStickers },
+            { img: "https://www.shutterstock.com/image-photo/plotter-cutting-vinyl-film-productionclean-600nw-2685062337.jpg", label: t.plotterCutStickers }
           ].map((item, i) => (
             <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
               <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -71,8 +71,8 @@ const Stickering = () => {
         {/* Row 2 - Shop Images */}
         <div className="grid grid-cols-2 gap-4 mb-16 max-w-7xl mx-auto">
           {[
-            { img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800", label: t.uvStickers },
-            { img: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800", label: t.laminatedStickers }
+            { img: "https://5.imimg.com/data5/SELLER/Default/2024/3/397061568/VB/OA/PC/7832232/uv-dtf-printing-sticker.jpeg", label: t.uvStickers },
+            { img: "https://5.imimg.com/data5/SELLER/Default/2024/10/458116005/JC/SV/WP/2918998/laminated-stickers.png", label: t.laminatedStickers }
           ].map((item, i) => (
             <div key={i} className="relative overflow-hidden h-64 md:h-96 group">
               <img src={item.img} alt={item.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />

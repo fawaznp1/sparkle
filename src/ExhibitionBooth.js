@@ -25,21 +25,21 @@ const ExhibitionBooth = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <div className="group overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=800&fit=crop" 
+              src="https://www.gskcreative.com.sg/wp-content/uploads/2019/06/ST-Engineering_01.jpg" 
               alt="Exhibition Booth 1" 
               className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="group overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&h=800&fit=crop" 
+              src="https://cdn1.designhill.com/uploads/personal_designs/ff74b3ea151fb4fce9ae518a7f13d885-abd93e76d30a74802bddb1d94108f74215779019120643.jpg?ver=2.12.85" 
               alt="Exhibition Booth 2" 
               className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="group overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&h=800&fit=crop" 
+              src="https://hazken.com/assets/images/bg/exhibition-booth-stands.jpg" 
               alt="Exhibition Booth 3" 
               className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
             />

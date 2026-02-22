@@ -1,0 +1,12 @@
+.image-zoom-wrapper {
+  overflow: hidden;
+}
+
+.image-zoom-wrapper img {
+  transform: scale(0.8);
+  transition: transform 0.8s ease-out;
+}
+
+.image-zoom-wrapper.visible img {
+  transform: scale(1);
+}

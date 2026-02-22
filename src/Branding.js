@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from './LanguageContext';
 import { translations } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
+import ImageZoomOut from './ImageZoomOut';
 
 
 const CountUp = ({ end, duration = 2000 }) => {
@@ -62,11 +63,13 @@ const Branding = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Heading with Background Image */}
             <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden">
+              <ImageZoomOut>
               <img 
                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" 
                 alt="Corporate Branding"
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              </ImageZoomOut>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
                 <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[0.9] mb-4">

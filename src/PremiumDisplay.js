@@ -25,21 +25,21 @@ const PremiumDisplay = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <div className="group overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&h=800&fit=crop" 
+              src="https://s.alicdn.com/@sc04/kf/H4ac17a0d45f2414bbad49d1afb438fdaQ/Customizable-Supermarket-Retail-Display-Stand-PVC-Foam-Board-Display-Rack-PVC-Foam-Display-Stand.jpg_300x300.jpg" 
               alt="Premium Display 1" 
               className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="group overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop" 
+              src="https://s.alicdn.com/@sc04/kf/He172e87d3b1b4945bdbbd0de98672ee51/Custom-Portable-Foldable-Cardboard-Display-Stand-Supermarket-Merchandise-Products-Paper-Display-Rack-Beverage-Chocolate-Store.jpg_300x300.jpg" 
               alt="Premium Display 2" 
               className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
           <div className="group overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=800&fit=crop" 
+              src="https://s.alicdn.com/@sc04/kf/H8f55b69053624f269463f5d823e828775/Custom-Acrylic-Phone-Accessary-Showcase-Back-Led-Light-PMMA-Charger-Display-Stand-4-tier-Cables-Display-Rack-with-Sticker.jpg_300x300.jpg" 
               alt="Premium Display 3" 
               className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
             />

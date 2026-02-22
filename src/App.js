@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import './App.css';
+import Hero from './Hero';
 
 const Branding = lazy(() => import('./Branding'));
 const Clients = lazy(() => import('./Clients'));
@@ -8,7 +9,6 @@ const ExhibitionBooth = lazy(() => import('./ExhibitionBooth'));
 const FleetGraphics = lazy(() => import('./FleetGraphics'));
 const Footer = lazy(() => import('./Footer'));
 const Header = lazy(() => import('./Header'));
-const Hero = lazy(() => import('./Hero'));
 const Indoor = lazy(() => import('./Indoor'));
 const PremiumDisplay = lazy(() => import('./PremiumDisplay'));
 const PromoGifts = lazy(() => import('./PromoGifts'));

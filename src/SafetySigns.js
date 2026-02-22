@@ -10,12 +10,12 @@ const SafetySigns = () => {
   const [ref, isVisible] = useScrollAnimation();
   
   const signs = [
-    { name: t.acrylicSafetySigns, image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=600&h=600&fit=crop' },
-    { name: t.hangingSafetySigns, image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=600&fit=crop' },
-    { name: t.standingSafetySigns, image: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=600&h=600&fit=crop' },
-    { name: t.stickerSafetySigns, image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&h=600&fit=crop' },
-    { name: t.reflectiveSigns, image: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=600&h=600&fit=crop' },
-    { name: t.reflectiveStickers, image: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=600&fit=crop' }
+    { name: t.acrylicSafetySigns, image: 'https://5.imimg.com/data5/SELLER/Default/2023/8/334393591/SO/CK/EE/131711696/71mdsql5g-l-sl1500-500x500.jpg' },
+    { name: t.hangingSafetySigns, image: 'https://img.archiexpo.com/images_ae/photo-mg/51515-5690289.jpg' },
+    { name: t.standingSafetySigns, image: 'https://www.caledoniasigns.co.uk/image/cache/catalog/58556-250x250.jpg' },
+    { name: t.stickerSafetySigns, image: 'https://m.media-amazon.com/images/I/71dOmvsSQ8L._AC_UF1000,1000_QL80_.jpg' },
+    { name: t.reflectiveSigns, image: 'https://m.media-amazon.com/images/I/71J9xlNMyhL._AC_UF350,350_QL80_.jpg' },
+    { name: t.reflectiveStickers, image: 'https://5.imimg.com/data5/CN/BN/MY-58083722/reflective-sticker-500x500.jpg' }
   ];
 
   return (

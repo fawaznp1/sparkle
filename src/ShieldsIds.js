@@ -13,10 +13,10 @@ const ShieldsIds = () => {
   
   const items = [
     { name: t.shieldsMomentos, image: 'https://5.imimg.com/data5/SELLER/Default/2023/1/IN/KM/FV/68023836/acrylic-memento-1000x1000.jpeg' },
-    { name: t.awardsTrophies, image: 'https://static.wixstatic.com/media/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png/v1/fill/w_600,h_600,al_c,lg_1,q_85,enc_avif,quality_auto/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png' },
-    { name: t.nameBadge, image: 'https://5.imimg.com/data5/SELLER/Default/2023/1/IN/KM/FV/68023836/acrylic-memento-1000x1000.jpeg' },
-    { name: t.idCards, image: 'https://static.wixstatic.com/media/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png/v1/fill/w_600,h_600,al_c,lg_1,q_85,enc_avif,quality_auto/a3eec1_fe22c4ce585a48038d1ee5cf5f784765~mv2.png' },
-    { name: t.certificatesMerit, image: 'https://5.imimg.com/data5/SELLER/Default/2023/1/IN/KM/FV/68023836/acrylic-memento-1000x1000.jpeg' },
+    { name: t.awardsTrophies, image: require('./images/awards.png') },
+    { name: t.nameBadge, image: 'https://www.vhv.rs/dpng/d/468-4681641_badge-transparent-name-name-tags-cape-town-hd.png' },
+    { name: t.idCards, image: 'https://img.freepik.com/premium-vector/id-card-identification-card-icon-business-identity-id-card-icon-template-badge_342166-722.jpg?semt=ais_hybrid&w=740&q=80' },
+    { name: t.certificatesMerit, image: 'https://e7.pngegg.com/pngimages/1004/804/png-clipart-template-diploma-academic-certificate-blue-border-certificate-border-blue.png' },
     { name: t.stampsSeals, image: 'https://3.imimg.com/data3/UE/PE/MY-4262070/manual-self-inking-stamps-1000x1000.jpg' }
   ];
 

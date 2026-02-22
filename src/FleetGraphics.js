@@ -12,13 +12,13 @@ const FleetGraphics = () => {
   const [ref, isVisible] = useScrollAnimation();
   
   const vehicles = [
-    { type: t.largeSizeVehicles, image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=500&fit=crop' },
-    { type: t.mediumSizeVehicles, image: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?w=800&h=500&fit=crop' },
-    { type: t.smallSizeVehicles, image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=500&fit=crop' },
-    { type: t.completeWrapping, image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=500&fit=crop' },
-    { type: t.plotterCutStickering, image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop' },
-    { type: t.uvPrintedStickering, image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop' },
-    { type: t.laminatedStickering, image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop' }
+    { type: t.largeSizeVehicles, image: 'https://www.turbo-images.com/mod/file/ArticleFile/28dd2c7955ce926456240b2ff0100bde.jpg' },
+    { type: t.mediumSizeVehicles, image: 'https://wrapguys.com/wp-content/uploads/2021/04/fleet-wraps.jpg' },
+    { type: t.smallSizeVehicles, image: 'https://toowoombasignco.com.au/portfolio/VehicleBranding/Vehicle%20Signage%20&%20Wraps%20Toowoomba.webp' },
+    { type: t.completeWrapping, image: 'https://cruxroadboardz.com/wp-content/uploads/fleet-graphic-slider4.webp' },
+    { type: t.plotterCutStickering, image: 'https://orchiddigitals.com/wp-content/uploads/2013/06/print-and-shape-cut-vinyl-pasted-on-a-car-1024x512.jpg.webp' },
+    { type: t.uvPrintedStickering, image: 'https://d6wz8uj70mtdq.cloudfront.net/beea2d25-1839-438f-a653-66edd08b8a85/image+library/unassigned/us291.png' },
+    { type: t.laminatedStickering, image: 'https://tododesigns.com/wp-content/uploads/2021/12/van-panel-graphic-laminated-print-side.jpg' }
   ];
 
   useEffect(() => {
